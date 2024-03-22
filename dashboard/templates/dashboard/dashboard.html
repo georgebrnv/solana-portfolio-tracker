@@ -1,0 +1,265 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'dashboard/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/css/header.css' %}">
+    <!--  BOOTSTRAP CSS  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="bg-theme-color">
+
+<!--  NAVIGATION BAR  -->
+<header class="p-3 text-bg-dark">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <svg height="40px" width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 451.296 451.296" xml:space="preserve"
+                     fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"> <circle style="fill:#6bb2db;" cx="225.648" cy="225.638"
+                                                         r="225.638"></circle>
+                        <path style="opacity:0.1;enable-background:new ;"
+                              d="M450.224,247.612l-134.121-134.09l-0.611-0.658l-1.128-1.128 c-3.338-3.103-7.757-5.03-12.74-5.03H132.192c-15.044,0-27.267,12.223-27.267,27.267v191.762c0,5.312,2.21,10.155,5.782,13.539 l0.376,0.376L222.654,451.22c1.001,0.013,1.99,0.076,2.994,0.076C342.859,451.296,439.174,361.925,450.224,247.612z"></path>
+                        <path style="fill:#DC8744;"
+                              d="M301.641,106.722H132.194c-15.057,0-27.264,12.207-27.264,27.264s12.206,27.264,27.264,27.264 h188.209v-35.766C320.403,115.123,312.003,106.722,301.641,106.722z"></path>
+                        <path style="fill:#FCD462;"
+                              d="M132.192,151.87c-9.862,0-17.883-8.021-17.883-17.883c0-9.862,8.021-17.882,17.883-17.882H301.64 c5.171,0,9.381,4.209,9.381,9.381v26.385H132.192z"></path>
+                        <path style="fill:#DC8744;"
+                              d="M325.046,161.251h-4.643H132.197h-0.003c-15.057,0-27.264-12.207-27.264-27.264v191.758 c0,10.389,8.421,18.81,18.81,18.81h201.307c10.388,0,18.81-8.421,18.81-18.81V180.061 C343.856,169.672,335.435,161.251,325.046,161.251z"></path>
+                        <path style="fill:#FCD462;"
+                              d="M343.977,236.533h-50.283c-10.466,0-18.95,8.484-18.95,18.951c0,10.466,8.484,18.95,18.95,18.95 h50.283c1.319,0,2.389-1.07,2.389-2.389v-33.123C346.366,237.603,345.296,236.533,343.977,236.533z"></path>
+                        <circle style="fill:#64798A;" cx="294.819" cy="255.483" r="11.412"></circle>
+                        <path style="fill:#2F4859;"
+                              d="M294.798,246.948c-0.353,0-0.687,0.062-1.028,0.103c4.223,0.514,7.507,4.07,7.507,8.432 c0,4.362-3.284,7.918-7.507,8.432c0.341,0.041,0.676,0.104,1.028,0.104c4.714,0,8.535-3.822,8.535-8.535 C303.333,250.77,299.511,246.948,294.798,246.948z"></path>
+                    </g>
+                </svg>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="#" class="nav-link px-2 text-info">Home</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">Portfolio</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
+                       aria-label="Search">
+            </form>
+
+            <div class="text-end me-2">
+                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <button type="button" class="btn btn-info">Sign-up</button>
+            </div>
+
+            <div class="dropdown text-end">
+                <a href="#" class="d-block link-body-emphasis text-decoration-none"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://t3.ftcdn.net/jpg/00/64/67/80/360_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg"
+                         alt="mdo" width="32" height="32" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu text-small" style="">
+                    <li><a class="dropdown-item" href="#">New project...</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--  WELCOME SECTION (CREATE/LOG IN)  -->
+<div class="container">
+    <div class="px-4 pt-5 mt-5 text-center bg-color-black">
+        <h1 class="display-4 fw-bold text-body-emphasis">Solana Portfolio Tracker</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Our Tracker is a comprehensive tool for crypto investors looking to manage and
+                monitor their Solana holdings. With intuitive features and real-time data, our platform empowers both
+                seasoned traders and beginners to stay informed and make informed decisions in the dynamic world of
+                decentralized finance.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                <button type="button" class="btn btn-info btn-lg px-4 me-sm-3">Create Account</button>
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Log In</button>
+            </div>
+        </div>
+        <div class="overflow-hidden" style="max-height: 30vh;">
+            <div class="container px-5">
+                <img src="https://assets-global.website-files.com/614c99cf4f23700c8aa3752a/619d68fca1e98c4961430216_The%205%20Best%20Crypto%20Portfolio%20Trackers%20(1).jpg"
+                     class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
+                     width="800" height="600" loading="lazy">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  CAROUSEL  -->
+<div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Slide 1" class="active"
+                aria-current="true"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1666635376142-97ac63563404?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                 class="d-block w-100" alt="First slide">
+            <!--            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"-->
+            <!--                 aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">-->
+            <!--                <rect width="100%" height="100%" fill="https://cryptowallet.com/app/uploads/2024/02/6592a69e5fa76d60ede2a272_best-solana-wallet-1.png"></rect>-->
+            <!--            </svg>-->
+            <div class="container">
+                <div class="carousel-caption text-start">
+                    <h1>Seamless Wallet Integration</h1>
+                    <p class="opacity-75">Easily sign up and add your Solana wallet to the tracker platform with a
+                        streamlined integration process, allowing you to effortlessly monitor your cryptocurrency
+                        holdings.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://img.decrypt.co/insecure/rs:fit:3840:0:0:0/plain/https://cdn.decrypt.co/wp-content/uploads/2021/11/Solana-phantom-wallet-e1636413752168-gID_7.jpeg@webp"
+                 class="d-block w-100" alt="First slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Comprehensive Asset Tracking</h1>
+                    <p>Keep track of your Solana coins and NFT assets in real-time, providing you with a comprehensive
+                        overview of your portfolio's performance and value fluctuations.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://miro.medium.com/v2/resize:fit:1199/1*0rjK35h3sJE_W3z4pGIQOA.jpeg"
+                 class="d-block w-100 carousel-img" alt="First slide">
+            <div class="container">
+                <div class="carousel-caption text-end">
+                    <h1>Informed Decision-Making</h1>
+                    <p>Utilize powerful analytics and insights to make informed decisions regarding your Solana
+                        investments, empowering you to execute strategic trades and optimize your portfolio for maximum
+                        returns.
+                    </p>
+                    <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!--  FEATURES  -->
+<div class="container" id="featured-3">
+    <h2 class="py-5">Main Features</h2>
+    <div class="row g-4 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
+            <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#collection"></use>
+                </svg>
+            </div>
+            <h3 class="fs-2 text-body-emphasis">Featured title</h3>
+            <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and
+                probably just keep going until we run out of words.</p>
+            <a href="#" class="icon-link">
+                Call to action
+                <svg class="bi">
+                    <use xlink:href="#chevron-right"></use>
+                </svg>
+            </a>
+        </div>
+        <div class="feature col">
+            <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#people-circle"></use>
+                </svg>
+            </div>
+            <h3 class="fs-2 text-body-emphasis">Featured title</h3>
+            <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and
+                probably just keep going until we run out of words.</p>
+            <a href="#" class="icon-link">
+                Call to action
+                <svg class="bi">
+                    <use xlink:href="#chevron-right"></use>
+                </svg>
+            </a>
+        </div>
+        <div class="feature col">
+            <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#toggles2"></use>
+                </svg>
+            </div>
+            <h3 class="fs-2 text-body-emphasis">Featured title</h3>
+            <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and
+                probably just keep going until we run out of words.</p>
+            <a href="#" class="icon-link">
+                Call to action
+                <svg class="bi">
+                    <use xlink:href="#chevron-right"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--  FOOTER  -->
+<footer>
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-5">
+            <div class="col-md-4 d-flex align-items-center">
+                <span class="mb-3 mb-md-0 text-body-secondary">Handcrafted by me © 2024</span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-1"><a class="text-body-secondary" href="#">
+                    <svg fill="#000000" width="50px" height="50px" viewBox="-1.5 0 19 19"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.917 1.666V17.5h-5.15c-.424 0-.557-.238-.557-.455 0-.266.01-1.141.01-2.226a1.935 1.935 0 0 0-.552-1.502c1.808-.202 3.706-.887 3.706-4.005a3.134 3.134 0 0 0-.834-2.177 2.914 2.914 0 0 0-.081-2.147s-.68-.218-2.23.832a7.684 7.684 0 0 0-4.063 0c-1.55-1.05-2.23-.832-2.23-.832a2.918 2.918 0 0 0-.08 2.147 3.142 3.142 0 0 0-.835 2.177c0 3.11 1.894 3.806 3.696 4.011a1.737 1.737 0 0 0-.516 1.084 1.726 1.726 0 0 1-2.361-.674 1.706 1.706 0 0 0-1.243-.836s-.793-.01-.056.494a2.145 2.145 0 0 1 .9 1.187s.478 1.578 2.735 1.088c.004.676.01 1.186.01 1.38 0 .214-.147.454-.553.454H.083V1.666z"></path>
+                    </svg>
+                </a></li>
+                <li class="ms-1"><a class="text-body-secondary" href="#">
+                    <svg fill="#000000" width="50px" height="50px" viewBox="-1.5 0 19 19"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.917 1.666v15.833H.083V1.666zM13.743 6.02a4.702 4.702 0 0 1-1.353.37 2.365 2.365 0 0 0 1.036-1.303 4.725 4.725 0 0 1-1.496.572 2.359 2.359 0 0 0-4.017 2.149 6.685 6.685 0 0 1-4.856-2.462 2.357 2.357 0 0 0 .728 3.146 2.339 2.339 0 0 1-1.067-.295v.03a2.359 2.359 0 0 0 1.89 2.311 2.362 2.362 0 0 1-1.064.04 2.36 2.36 0 0 0 2.202 1.637 4.733 4.733 0 0 1-2.928 1.01 4.838 4.838 0 0 1-.562-.034 6.702 6.702 0 0 0 10.318-5.647c0-.102-.002-.203-.007-.304a4.785 4.785 0 0 0 1.176-1.22z"></path>
+                    </svg>
+                </a></li>
+                <li class="ms-1"><a class="text-body-secondary" href="#">
+                    <svg fill="#000000" width="50px" height="50px" viewBox="-1.5 0 19 19"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.917 17.5H.083V1.666h15.834zM5.77 6.427a.96.96 0 0 0-1.032-.96.962.962 0 1 0-.025 1.92h.013a.963.963 0 0 0 1.044-.96zm-.123 1.719H3.803v5.552h1.845zm6.658 2.368c0-1.705-.91-2.5-2.125-2.5a1.832 1.832 0 0 0-1.663.917v-.786H6.67c.025.52 0 5.554 0 5.554h1.848v-3.102a1.264 1.264 0 0 1 .06-.45 1.011 1.011 0 0 1 .946-.676c.67 0 .936.51.936 1.256V13.7h1.846zm-3.8-1.564.013-.019v.019z"></path>
+                    </svg>
+                </a></li>
+                <li class="ms-1"><a class="text-body-secondary" href="#">
+                    <svg fill="#000000" width="50px" height="50px" viewBox="-1.5 0 19 19"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.917 1.666v15.833H.083V1.666zM2.392 12.269l3.795-2.433-3.795-2.798zm.98-5.492L7.078 9.51a1.668 1.668 0 0 0 1.824 0l3.704-2.732zm8.937 5.615-3.227-2.07a2.517 2.517 0 0 1-2.186 0l-3.23 2.07zm1.277-5.354L9.791 9.837l3.795 2.434z"></path>
+                    </svg>
+                </a></li>
+            </ul>
+        </footer>
+    </div>
+</footer>
+
+<!--  BOOTSTRAP SCRIPT  -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
