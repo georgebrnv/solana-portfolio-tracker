@@ -15,49 +15,58 @@
 <body class="bg-theme-color">
 
 <!--  NAVIGATION BAR  -->
-<header class="p-3 text-bg-dark">
+<header class="nav-bar p-3">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
 
                 <!--  SVG ICON  -->
-                <svg height="40px" width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 451.296 451.296" xml:space="preserve"
-                     fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier"> <circle style="fill:#6bb2db;" cx="225.648" cy="225.638"
-                                                         r="225.638"></circle>
-                        <path style="opacity:0.1;enable-background:new ;"
-                              d="M450.224,247.612l-134.121-134.09l-0.611-0.658l-1.128-1.128 c-3.338-3.103-7.757-5.03-12.74-5.03H132.192c-15.044,0-27.267,12.223-27.267,27.267v191.762c0,5.312,2.21,10.155,5.782,13.539 l0.376,0.376L222.654,451.22c1.001,0.013,1.99,0.076,2.994,0.076C342.859,451.296,439.174,361.925,450.224,247.612z"></path>
-                        <path style="fill:#DC8744;"
-                              d="M301.641,106.722H132.194c-15.057,0-27.264,12.207-27.264,27.264s12.206,27.264,27.264,27.264 h188.209v-35.766C320.403,115.123,312.003,106.722,301.641,106.722z"></path>
-                        <path style="fill:#FCD462;"
-                              d="M132.192,151.87c-9.862,0-17.883-8.021-17.883-17.883c0-9.862,8.021-17.882,17.883-17.882H301.64 c5.171,0,9.381,4.209,9.381,9.381v26.385H132.192z"></path>
-                        <path style="fill:#DC8744;"
-                              d="M325.046,161.251h-4.643H132.197h-0.003c-15.057,0-27.264-12.207-27.264-27.264v191.758 c0,10.389,8.421,18.81,18.81,18.81h201.307c10.388,0,18.81-8.421,18.81-18.81V180.061 C343.856,169.672,335.435,161.251,325.046,161.251z"></path>
-                        <path style="fill:#FCD462;"
-                              d="M343.977,236.533h-50.283c-10.466,0-18.95,8.484-18.95,18.951c0,10.466,8.484,18.95,18.95,18.95 h50.283c1.319,0,2.389-1.07,2.389-2.389v-33.123C346.366,237.603,345.296,236.533,343.977,236.533z"></path>
-                        <circle style="fill:#64798A;" cx="294.819" cy="255.483" r="11.412"></circle>
-                        <path style="fill:#2F4859;"
-                              d="M294.798,246.948c-0.353,0-0.687,0.062-1.028,0.103c4.223,0.514,7.507,4.07,7.507,8.432 c0,4.362-3.284,7.918-7.507,8.432c0.341,0.041,0.676,0.104,1.028,0.104c4.714,0,8.535-3.822,8.535-8.535 C303.333,250.77,299.511,246.948,294.798,246.948z"></path>
-                    </g>
-                </svg>
+                <div class="svg-icon">
+                    <svg width="50px" height="50px" viewBox="0 0 1024 1024" class="icon" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path d="M732.1 399.3C534.6 356 696.5 82.1 425.9 104.8s-527.2 645.8-46.8 791.7 728-415 353-497.2z"
+                                  fill="#8733db"></path>
+                            <path d="M276.8 449.8c0 37 30 66.9 66.9 66.9h319c9.6 0 17.4 7.8 17.4 17.4v234.7c0 9.6-7.8 17.4-17.4 17.4H389.3c-62.2 0-112.5-50.4-112.5-112.5V442.3"
+                                  fill="#0dcaf0"></path>
+                            <path d="M662.8 795.5H389.3c-67.2 0-121.8-54.6-121.8-121.8V442.3c0-5.1 4.1-9.3 9.3-9.3s9.3 4.1 9.3 9.3v7.6c0 31.8 25.9 57.7 57.7 57.7h319c14.7 0 26.6 12 26.6 26.6v234.7c0 14.6-11.9 26.6-26.6 26.6zM286.1 499.6v174.1c0 57 46.3 103.3 103.3 103.3h273.4c4.5 0 8.1-3.6 8.1-8.1V534.2c0-4.5-3.6-8.1-8.1-8.1h-319a76.2 76.2 0 0 1-57.7-26.5z"
+                                  fill="#151B28"></path>
+                            <path d="M662.8 795.5H389.3c-67.2 0-121.8-54.6-121.8-121.8V447.1c0-40.6 33.1-73.7 73.7-73.7h319.7c5.1 0 9.3 4.1 9.3 9.3s-4.1 9.3-9.3 9.3H341.2c-30.4 0-55.2 24.8-55.2 55.2v2.7c0 31.8 25.9 57.7 57.7 57.7h319c14.7 0 26.6 12 26.6 26.6v234.7a26.5 26.5 0 0 1-26.5 26.6zM286.1 499.6v174.1c0 57 46.3 103.3 103.3 103.3h273.4c4.5 0 8.1-3.6 8.1-8.1V534.2c0-4.5-3.6-8.1-8.1-8.1h-319a76.2 76.2 0 0 1-57.7-26.5z"
+                                  fill="#151B28"></path>
+                            <path d="M589.3 517H384.7V320.3c0-10.2 8.3-18.4 18.4-18.4h167.7c10.2 0 18.4 8.3 18.4 18.4V517z"
+                                  fill="#efd62e"></path>
+                            <path d="M589.3 525.5H384.7a8.5 8.5 0 0 1-8.5-8.5V320.3c0-14.8 12.1-26.9 26.9-26.9h167.7c14.8 0 26.9 12.1 26.9 26.9V517c0.1 4.7-3.7 8.5-8.4 8.5z m-196.1-17h187.7V320.3c0-5.5-4.5-10-10-10H403.1c-5.5 0-10 4.5-10 10v188.2z"
+                                  fill="#151B28"></path>
+                            <path d="M422.2 307.7h44.9V511h-44.9z" fill="#0dcaf0"></path>
+                            <path d="M467.1 515.7h-44.9a4.8 4.8 0 0 1-4.8-4.8V307.7c0-2.6 2.1-4.8 4.8-4.8h44.9c2.6 0 4.8 2.1 4.8 4.8V511c0 2.6-2.2 4.7-4.8 4.7z m-40.1-9.5h35.4V312.4H427v193.8z m74.6-178h15.5v42.5h-15.5zM501.6 386.1h15.5v104.5h-15.5zM542.2 328.2h15.5v162.4h-15.5z"
+                                  fill="#151B28"></path>
+                            <path d="M694.1 588.8H521.5c-25.7 0-48.6 18.8-51 44.3-2.8 29.3 20.2 54 48.9 54h174.7c5.8 0 10.4-4.7 10.4-10.4v-77.5c0-5.7-4.6-10.4-10.4-10.4z"
+                                  fill="#8733db"></path>
+                            <path d="M694.1 696.1H519.4c-16.3 0-32-6.9-43-19a58.23 58.23 0 0 1-14.8-44.8c2.8-29.4 29.1-52.4 60-52.4h172.6c10.7 0 19.4 8.7 19.4 19.4v77.5c-0.1 10.6-8.8 19.3-19.5 19.3z m-172.6-98.3c-21.7 0-40.2 15.9-42.1 36.2a39.63 39.63 0 0 0 10.3 31 40.3 40.3 0 0 0 29.8 13.2h174.7c0.8 0 1.5-0.7 1.5-1.5v-77.5c0-0.8-0.7-1.5-1.5-1.5l-172.7 0.1z"
+                                  fill="#151B28"></path>
+                            <path d="M523.3 638m-22.8 0a22.8 22.8 0 1 0 45.6 0 22.8 22.8 0 1 0-45.6 0Z"
+                                  fill="#0dcaf0"></path>
+                        </g>
+                    </svg>
+                </div>
 
             </a>
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 text-info">Home</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+            <ul class="nav nav-bar-text col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="#" class="nav-link nav-home-btn px-2">Home</a></li>
+                <li><a href="#" class="nav-link px-2 text-white" onclick="scrollToElement('targetElement')">Features</a></li>
                 <li><a href="#" class="nav-link px-2 text-white">Portfolio</a></li>
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
+                <input type="search" class="form-control nav-search-btn" placeholder="Coin, wallet address..."
                        aria-label="Search">
             </form>
 
-            <div class="text-end me-2">
-                <button type="button" class="btn btn-outline-light me-2">Login</button>
-                <button type="button" class="btn btn-info">Sign-up</button>
+            <div class="text-end me-2 border-left">
+                <button type="button" class="btn login-btn me-2">Login</button>
+                <button type="button" class="btn btn-info btn-upd">Get Started</button>
             </div>
 
             <div class="dropdown text-end">
@@ -107,73 +116,8 @@
     </div>
 </div>
 
-<!--  CAROUSEL  -->
-<div class="pt-5">
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Slide 1" class="active"
-                    aria-current="true"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"
-                    class=""></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"
-                    class=""></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://image.tensorartassets.com/cdn-cgi/image/w=2560,f=jpeg,q=85/posts/images/672175443092252736/efbc65cc-ac0f-4e3b-a65c-61f8dccbdd3a.jpg"
-                     class="carousel-image d-block w-100" alt="First slide">
-                <div class="container">
-                    <div class="carousel-caption text-start">
-                        <h1>Seamless Wallet Integration</h1>
-                        <p class="opacity-75">Easily sign up and add your Solana wallet to the tracker platform with a
-                            streamlined integration process, allowing you to effortlessly monitor your cryptocurrency
-                            holdings.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Sign Up Today</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="https://www.hdwallpapers.in/download/aura_rays_hd_1080p-1280x720.jpg"
-                     class="d-block w-100" alt="First slide">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Comprehensive Asset Tracking</h1>
-                        <p>Keep track of your Solana coins and NFT assets in real-time, providing you with a
-                            comprehensive
-                            overview of your portfolio's performance and value fluctuations.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="https://miro.medium.com/v2/resize:fit:1199/1*0rjK35h3sJE_W3z4pGIQOA.jpeg"
-                     class="d-block w-100 carousel-img" alt="First slide">
-                <div class="container">
-                    <div class="carousel-caption text-end">
-                        <h1>Informed Decision-Making</h1>
-                        <p>Utilize powerful analytics and insights to make informed decisions regarding your Solana
-                            investments, empowering you to execute strategic trades and optimize your portfolio for
-                            maximum
-                            returns.
-                        </p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Join Now</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div>
-
 <!--  FEATURES  -->
-<div class="container">
+<div class="container" id="targetElement">
     <hr class="divider">
 
     <!-- Feature #1 -->
@@ -439,13 +383,112 @@
     </div>
 </div>
 
-<hr class="footer-divider">
+<!--  CAROUSEL  -->
+<div class="pt-5">
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Slide 1" class="active"
+                    aria-current="true"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"
+                    class=""></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"
+                    class=""></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="carousel-img-div">
+                    <img src="https://image.tensorartassets.com/cdn-cgi/image/w=2560,f=jpeg,q=85/posts/images/672175443092252736/efbc65cc-ac0f-4e3b-a65c-61f8dccbdd3a.jpg"
+                         class="carousel-image d-block w-100" alt="First slide">
+                </div>
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                        <h1>Seamless Wallet Integration</h1>
+                        <p class="opacity-75">Easily sign up and add your Solana wallet to the tracker platform with a
+                            streamlined integration process, allowing you to effortlessly monitor your cryptocurrency
+                            holdings.</p>
+                        <p><a class="btn btn-lg btn-info" href="#">Sign Up Today</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img-div">
+                    <img src="https://www.hdwallpapers.in/download/aura_rays_hd_1080p-1280x720.jpg"
+                         class="d-block w-100" alt="First slide">
+                </div>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Comprehensive Asset Tracking</h1>
+                        <p>Keep track of your Solana coins and NFT assets in real-time, providing you with a
+                            comprehensive
+                            overview of your portfolio's performance and value fluctuations.</p>
+                        <p><a class="btn btn-lg btn-info" href="#">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img-div">
+                    <img src="https://allesovercrypto.nl/sites/default/files/2021-11/image-solana-blockchain-technische-uitleg-beginners.png"
+                         class="d-block w-100 carousel-img" alt="First slide">
+                </div>
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1>Informed Decision-Making</h1>
+                        <p>Utilize powerful analytics and insights to make informed decisions regarding your Solana
+                            investments, empowering you to execute strategic trades and optimize your portfolio for
+                            maximum
+                            returns.
+                        </p>
+                        <p><a class="btn btn-lg btn-info" href="#">Join Now</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
 
 <!--  FOOTER  -->
 <footer>
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-5">
             <div class="col-md-4 d-flex align-items-center">
+                <div class="svg-icon px-3">
+                    <svg width="50px" height="50px" viewBox="0 0 1024 1024" class="icon" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path d="M732.1 399.3C534.6 356 696.5 82.1 425.9 104.8s-527.2 645.8-46.8 791.7 728-415 353-497.2z"
+                                  fill="#8733db"></path>
+                            <path d="M276.8 449.8c0 37 30 66.9 66.9 66.9h319c9.6 0 17.4 7.8 17.4 17.4v234.7c0 9.6-7.8 17.4-17.4 17.4H389.3c-62.2 0-112.5-50.4-112.5-112.5V442.3"
+                                  fill="#0dcaf0"></path>
+                            <path d="M662.8 795.5H389.3c-67.2 0-121.8-54.6-121.8-121.8V442.3c0-5.1 4.1-9.3 9.3-9.3s9.3 4.1 9.3 9.3v7.6c0 31.8 25.9 57.7 57.7 57.7h319c14.7 0 26.6 12 26.6 26.6v234.7c0 14.6-11.9 26.6-26.6 26.6zM286.1 499.6v174.1c0 57 46.3 103.3 103.3 103.3h273.4c4.5 0 8.1-3.6 8.1-8.1V534.2c0-4.5-3.6-8.1-8.1-8.1h-319a76.2 76.2 0 0 1-57.7-26.5z"
+                                  fill="#151B28"></path>
+                            <path d="M662.8 795.5H389.3c-67.2 0-121.8-54.6-121.8-121.8V447.1c0-40.6 33.1-73.7 73.7-73.7h319.7c5.1 0 9.3 4.1 9.3 9.3s-4.1 9.3-9.3 9.3H341.2c-30.4 0-55.2 24.8-55.2 55.2v2.7c0 31.8 25.9 57.7 57.7 57.7h319c14.7 0 26.6 12 26.6 26.6v234.7a26.5 26.5 0 0 1-26.5 26.6zM286.1 499.6v174.1c0 57 46.3 103.3 103.3 103.3h273.4c4.5 0 8.1-3.6 8.1-8.1V534.2c0-4.5-3.6-8.1-8.1-8.1h-319a76.2 76.2 0 0 1-57.7-26.5z"
+                                  fill="#151B28"></path>
+                            <path d="M589.3 517H384.7V320.3c0-10.2 8.3-18.4 18.4-18.4h167.7c10.2 0 18.4 8.3 18.4 18.4V517z"
+                                  fill="#efd62e"></path>
+                            <path d="M589.3 525.5H384.7a8.5 8.5 0 0 1-8.5-8.5V320.3c0-14.8 12.1-26.9 26.9-26.9h167.7c14.8 0 26.9 12.1 26.9 26.9V517c0.1 4.7-3.7 8.5-8.4 8.5z m-196.1-17h187.7V320.3c0-5.5-4.5-10-10-10H403.1c-5.5 0-10 4.5-10 10v188.2z"
+                                  fill="#151B28"></path>
+                            <path d="M422.2 307.7h44.9V511h-44.9z" fill="#0dcaf0"></path>
+                            <path d="M467.1 515.7h-44.9a4.8 4.8 0 0 1-4.8-4.8V307.7c0-2.6 2.1-4.8 4.8-4.8h44.9c2.6 0 4.8 2.1 4.8 4.8V511c0 2.6-2.2 4.7-4.8 4.7z m-40.1-9.5h35.4V312.4H427v193.8z m74.6-178h15.5v42.5h-15.5zM501.6 386.1h15.5v104.5h-15.5zM542.2 328.2h15.5v162.4h-15.5z"
+                                  fill="#151B28"></path>
+                            <path d="M694.1 588.8H521.5c-25.7 0-48.6 18.8-51 44.3-2.8 29.3 20.2 54 48.9 54h174.7c5.8 0 10.4-4.7 10.4-10.4v-77.5c0-5.7-4.6-10.4-10.4-10.4z"
+                                  fill="#8733db"></path>
+                            <path d="M694.1 696.1H519.4c-16.3 0-32-6.9-43-19a58.23 58.23 0 0 1-14.8-44.8c2.8-29.4 29.1-52.4 60-52.4h172.6c10.7 0 19.4 8.7 19.4 19.4v77.5c-0.1 10.6-8.8 19.3-19.5 19.3z m-172.6-98.3c-21.7 0-40.2 15.9-42.1 36.2a39.63 39.63 0 0 0 10.3 31 40.3 40.3 0 0 0 29.8 13.2h174.7c0.8 0 1.5-0.7 1.5-1.5v-77.5c0-0.8-0.7-1.5-1.5-1.5l-172.7 0.1z"
+                                  fill="#151B28"></path>
+                            <path d="M523.3 638m-22.8 0a22.8 22.8 0 1 0 45.6 0 22.8 22.8 0 1 0-45.6 0Z"
+                                  fill="#0dcaf0"></path>
+                        </g>
+                    </svg>
+                </div>
                 <span class="mb-3 mb-md-0 text-light">Handcrafted by me © 2024</span>
             </div>
 

@@ -2,6 +2,33 @@
     background: #000;
 }
 
+.svg-icon {
+    padding-right: 1rem;
+}
+
+.nav-bar {
+    background-color: #0E0E0E;
+    border-bottom: 1px solid #1B6873;
+}
+
+.nav-home-btn {
+    font-weight: 800 !important;
+}
+
+.nav-bar-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-color: #C9C9C9;
+}
+
+.nav-link {
+    color: #8733db !important;
+}
+
+.form-control::placeholder {
+    text-color: white;
+}
+
 #myCarousel {
     max-width: 100%; /* Adjust as needed */
     height: 50%; /* Set the desired height */
@@ -22,8 +49,23 @@
     height: 78vh;
 }
 
+.carousel--img-div {
+    position: relative;
+}
+
+.carousel-img-div::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.8) 100%);
+    pointer-events: none; /* Ensures that the overlay doesn't interfere with click events */
+}
+
 .bg-welcome-img {
-    background-image: url("https://image.tensorartassets.com/cdn-cgi/image/w=2560,f=jpeg,q=85/posts/images/672175443092252736/efbc65cc-ac0f-4e3b-a65c-61f8dccbdd3a.jpg");
+    background-image: url("https://solana.com/_next/image?url=https%3A%2F%2Fcdn.builder.io%2Fapi%2Fv1%2Fimage%2Fassets%252Fce0c7323a97a4d91bd0baa7490ec9139%252F1ee2a52c9c8f4a8b80f38df311e1d00e&w=3840&q=75");
 }
 
 .welcome-title {
@@ -123,4 +165,29 @@
 
 .img-container {
     padding-right: 3rem;
+}
+
+.nav-search-btn {
+    background-color: black !important;
+    border-radius: 16px !important;
+    color: white !important;
+}
+
+.nav-search-btn::placeholder {
+    color: #999 !important;
+    opacity: 0.5 !important;
+}
+
+.nav-search-btn:focus-visible {
+    color: white !important;
+}
+
+.login-btn {
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+.btn-upd {
+    --bs-btn-border-radius: 16px !important;
+    --bs-btn-font-weight: 500 !important;
 }
