@@ -1,0 +1,369 @@
+
+{% include 'dashboard/header.html' %}
+
+<!--  WELCOME SECTION (CREATE/LOG IN)  -->
+<div class="">
+    <div class="container">
+        <div class="px-4 pt-5 mt-5 text-center border-bottom">
+            <h1 class="welcome-title display-4 fw-bold">Solana Portfolio Tracker</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="welcome-secondary lead mb-4">Our Tracker is a comprehensive tool for crypto investors looking
+                    to manage and
+                    monitor their Solana holdings. With intuitive features and real-time data, our platform empowers
+                    both
+                    seasoned traders and beginners to stay informed and make informed decisions in the dynamic world of
+                    decentralized finance.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <button type="button" class="btn btn-info btn-lg px-4 me-sm-3">Create Account</button>
+                    <button type="button" class="btn btn-outline-light btn-lg px-4">Log In</button>
+                </div>
+            </div>
+            <div class="overflow-hidden" style="max-height: 47vh;">
+                <div class="container">
+                    <img src="https://assets-global.website-files.com/6525b50267a51878e75b286f/6526fab326c3fc64c66dd573_HomePageBackground1.png"
+                         class="cropped-image rounded-3 shadow-lg" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  FEATURES  -->
+<div class="container" id="targetElement">
+    <hr class="divider">
+
+    <!-- Feature #1 -->
+    <div class="row feature">
+        <div class="col-md-5">
+            <h2 class="feature-text-header">Effortlessly Track and Manage Your Solana Holdings. <span
+                    class="feature-text-header-secondary">So easy.</span>
+            </h2>
+            <p class="lead feature-description-text">Stay on top of your Solana investments with our intuitive portfolio
+                tracker. With our
+                platform, you can:</p>
+            <div class="feature-list">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
+                             data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <circle id="primary" cx="12" cy="12" r="10" style="fill: #11849B;"></circle>
+                                <path id="secondary"
+                                      d="M11,15.5a1,1,0,0,1-.71-.29l-3-3a1,1,0,1,1,1.42-1.42L11,13.09l4.29-4.3a1,1,0,0,1,1.42,1.42l-5,5A1,1,0,0,1,11,15.5Z"
+                                      style="fill: #0dcaf0;"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="col-md-8 justify-content-left text-align-left">
+                        <p class="feature-list-text">Track the performance of your Solana tokens and NFT assets in
+                            real-time</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
+                             data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <circle id="primary" cx="12" cy="12" r="10" style="fill: #11849B;"></circle>
+                                <path id="secondary"
+                                      d="M11,15.5a1,1,0,0,1-.71-.29l-3-3a1,1,0,1,1,1.42-1.42L11,13.09l4.29-4.3a1,1,0,0,1,1.42,1.42l-5,5A1,1,0,0,1,11,15.5Z"
+                                      style="fill: #0dcaf0;"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="col-md-8 justify-content-left text-align-left">
+                        <p class="feature-list-text">View comprehensive insights into your portfolio's value
+                            fluctuations and asset allocation</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
+                             data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <circle id="primary" cx="12" cy="12" r="10" style="fill: #11849B;"></circle>
+                                <path id="secondary"
+                                      d="M11,15.5a1,1,0,0,1-.71-.29l-3-3a1,1,0,1,1,1.42-1.42L11,13.09l4.29-4.3a1,1,0,0,1,1.42,1.42l-5,5A1,1,0,0,1,11,15.5Z"
+                                      style="fill: #0dcaf0;"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="col-md-8 justify-content-left text-align-left">
+                        <p class="feature-list-text">Efficiently manage your Solana holdings with our user-friendly
+                            interface</p>
+                    </div>
+                </div>
+                <div class="py-2">
+                    <button type="button" class="btn btn-info btn-lg px-4">Join Us Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <img src="https://coinstats.app/_next/image?url=%2F_next%2Fstatic%2Fimages%2Fnew-portfolio-banner-solana-d43cfea041bed2db8eaa24d96ee294f6.svg&w=3840&q=75">
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Feature #2 -->
+    <div class="row feature">
+        <div class="col-md-5 order-md-2">
+            <h2 class="feature-text-header">Seamless Wallet Integration for Hassle-Free Monitoring. <span
+                    class="feature-text-header-secondary">See for yourself.</span>
+            </h2>
+            <p class="lead feature-description-text">Integrate your Solana wallet seamlessly with our tracker platform.
+                With our integration process, you can:</p>
+            <div class="feature-list">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
+                             data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <circle id="primary" cx="12" cy="12" r="10" style="fill: #11849B;"></circle>
+                                <path id="secondary"
+                                      d="M11,15.5a1,1,0,0,1-.71-.29l-3-3a1,1,0,1,1,1.42-1.42L11,13.09l4.29-4.3a1,1,0,0,1,1.42,1.42l-5,5A1,1,0,0,1,11,15.5Z"
+                                      style="fill: #0dcaf0;"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="col-md-8 justify-content-left text-align-left">
+                        <p class="feature-list-text">Easily sign up and connect your Solana wallet for instant
+                            tracking</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
+                             data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <circle id="primary" cx="12" cy="12" r="10" style="fill: #11849B;"></circle>
+                                <path id="secondary"
+                                      d="M11,15.5a1,1,0,0,1-.71-.29l-3-3a1,1,0,1,1,1.42-1.42L11,13.09l4.29-4.3a1,1,0,0,1,1.42,1.42l-5,5A1,1,0,0,1,11,15.5Z"
+                                      style="fill: #0dcaf0;"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="col-md-8 justify-content-left text-align-left">
+                        <p class="feature-list-text">Monitor your Solana holdings effortlessly, all from one centralized
+                            dashboard</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
+                             data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <circle id="primary" cx="12" cy="12" r="10" style="fill: #11849B;"></circle>
+                                <path id="secondary"
+                                      d="M11,15.5a1,1,0,0,1-.71-.29l-3-3a1,1,0,1,1,1.42-1.42L11,13.09l4.29-4.3a1,1,0,0,1,1.42,1.42l-5,5A1,1,0,0,1,11,15.5Z"
+                                      style="fill: #0dcaf0;"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="col-md-8 justify-content-left text-align-left">
+                        <p class="feature-list-text">Stay informed about your wallet's activity and asset movements with
+                            real-time updates</p>
+                    </div>
+                </div>
+                <div class="py-2">
+                    <button type="button" class="btn btn-info btn-lg px-4">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <div class="img-container">
+                <img src="https://coinstats.app/_next/image?url=%2F_next%2Fstatic%2Fimages%2Fnew-portfolio-banner-analytics-19e3f2ee456e1b567d7d122e2888a00b.svg&w=3840&q=75">
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Feature #3 -->
+    <div class="row feature">
+        <div class="col-md-5">
+            <h2 class="feature-text-header">Informed Decision-Making with Powerful Analytics. <span
+                    class="feature-text-header-secondary">Checkmate.</span>
+            </h2>
+            <p class="lead feature-description-text">Empower yourself with insightful analytics and data-driven
+                insights. With our platform, you can:</p>
+            <div class="feature-list">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
+                             data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <circle id="primary" cx="12" cy="12" r="10" style="fill: #11849B;"></circle>
+                                <path id="secondary"
+                                      d="M11,15.5a1,1,0,0,1-.71-.29l-3-3a1,1,0,1,1,1.42-1.42L11,13.09l4.29-4.3a1,1,0,0,1,1.42,1.42l-5,5A1,1,0,0,1,11,15.5Z"
+                                      style="fill: #0dcaf0;"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="col-md-8 justify-content-left text-align-left">
+                        <p class="feature-list-text">Utilize powerful analytics tools to make informed decisions about
+                            your Solana investments</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
+                             data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <circle id="primary" cx="12" cy="12" r="10" style="fill: #11849B;"></circle>
+                                <path id="secondary"
+                                      d="M11,15.5a1,1,0,0,1-.71-.29l-3-3a1,1,0,1,1,1.42-1.42L11,13.09l4.29-4.3a1,1,0,0,1,1.42,1.42l-5,5A1,1,0,0,1,11,15.5Z"
+                                      style="fill: #0dcaf0;"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="col-md-8 justify-content-left text-align-left">
+                        <p class="feature-list-text">Access comprehensive market data and trends to optimize your
+                            portfolio strategy</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
+                             data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <circle id="primary" cx="12" cy="12" r="10" style="fill: #11849B;"></circle>
+                                <path id="secondary"
+                                      d="M11,15.5a1,1,0,0,1-.71-.29l-3-3a1,1,0,1,1,1.42-1.42L11,13.09l4.29-4.3a1,1,0,0,1,1.42,1.42l-5,5A1,1,0,0,1,11,15.5Z"
+                                      style="fill: #0dcaf0;"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="col-md-8 justify-content-left text-align-left">
+                        <p class="feature-list-text">Execute strategic trades and adjustments based on real-time market
+                            analysis"</p>
+                    </div>
+                </div>
+                <div class="py-2">
+                    <button type="button" class="btn btn-info btn-lg px-4">Learn More</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <img src="https://coinstats.app/_next/image?url=%2F_next%2Fstatic%2Fimages%2Fnew-portfolio-banner-analyze-3018a98c6bf6b2cdc84a386f02482a48.svg&w=3840&q=75">
+        </div>
+    </div>
+    <hr class="divider">
+</div>
+
+<hr class="footer-divider">
+
+<!--  FAQ   -->
+<div class="container py-3">
+    <div class="row text-center faq py-4">
+        <h2 class="faq-title">Get Answers to All Your Questions</h2>
+        <div class="row justify-content-center">
+            <p class="col-md-4 faq-secondary">Wondering what you can do with our Tracker? Find the answers below!</p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            {% for question, answer in faq_questions.items %}
+            <div class="faq-item">
+                <div class="question text-color-white" onclick="toggleAnswer('{{ question|slugify }}')"> {{question}}
+                </div>
+                <div id="{{ question|slugify }}" class="answer pt-3"> {{ answer }}</div>
+            </div>
+            {% if not forloop.last %}
+            <hr class="footer-divider">
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!--  CAROUSEL  -->
+<div class="pt-5">
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Slide 1" class="active"
+                    aria-current="true"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"
+                    class=""></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"
+                    class=""></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="carousel-img-div">
+                    <img src="https://image.tensorartassets.com/cdn-cgi/image/w=2560,f=jpeg,q=85/posts/images/672175443092252736/efbc65cc-ac0f-4e3b-a65c-61f8dccbdd3a.jpg"
+                         class="carousel-image d-block w-100" alt="First slide">
+                </div>
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                        <h1>Seamless Wallet Integration</h1>
+                        <p class="opacity-75">Easily sign up and add your Solana wallet to the tracker platform with a
+                            streamlined integration process, allowing you to effortlessly monitor your cryptocurrency
+                            holdings.</p>
+                        <p><a class="btn btn-lg btn-info" href="#">Sign Up Today</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img-div">
+                    <img src="https://www.hdwallpapers.in/download/aura_rays_hd_1080p-1280x720.jpg"
+                         class="d-block w-100" alt="First slide">
+                </div>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Comprehensive Asset Tracking</h1>
+                        <p>Keep track of your Solana coins and NFT assets in real-time, providing you with a
+                            comprehensive
+                            overview of your portfolio's performance and value fluctuations.</p>
+                        <p><a class="btn btn-lg btn-info" href="#">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img-div">
+                    <img src="https://allesovercrypto.nl/sites/default/files/2021-11/image-solana-blockchain-technische-uitleg-beginners.png"
+                         class="d-block w-100 carousel-img" alt="First slide">
+                </div>
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1>Informed Decision-Making</h1>
+                        <p>Utilize powerful analytics and insights to make informed decisions regarding your Solana
+                            investments, empowering you to execute strategic trades and optimize your portfolio for
+                            maximum
+                            returns.
+                        </p>
+                        <p><a class="btn btn-lg btn-info" href="#">Join Now</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+{% include 'dashboard/footer.html' %}

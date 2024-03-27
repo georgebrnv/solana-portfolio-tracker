@@ -11,7 +11,10 @@ FAQ = {
 }
 
 
-def home(request):
-    return render(request, 'dashboard/dashboard.html', context={
+def index(request):
+    return render(request, 'dashboard/index.html', context={
         'faq_questions': FAQ,
     })
+
+def dashboard(request):
+    return render(request, 'dashboard/dashboard.html')

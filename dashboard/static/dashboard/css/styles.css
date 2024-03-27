@@ -1,3 +1,41 @@
+/* Webkit (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+    width: 5px; /* Set the width of the scrollbar */
+    background-color: #2A2A2A; /* Set the background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #0A758A; /* Set the color of the scrollbar thumb */
+    border-radius: 4px;
+}
+
+/* Firefox */
+::-moz-scrollbar {
+    width: 5px;
+    background-color: #2A2A2A;
+}
+
+::-moz-scrollbar-thumb {
+    background-color: #0A758A; /* Set the color of the scrollbar thumb */
+    border-radius: 4px;
+}
+
+/* Internet Explorer and Edge */
+::-ms-scrollbar {
+    width: 5px;
+    background-color: #2A2A2A;
+}
+
+::-ms-scrollbar-thumb {
+    background-color: #0A758A; /* Set the color of the scrollbar thumb */
+    border-radius: 4px;
+}
+
+.form-check-input:checked {
+    background-color: #0dcaf0 !important;
+    border-color: #0A758A !important;
+}
+
 .bg-theme-color {
     background: #000;
 }
@@ -6,9 +44,16 @@
     padding-right: 1rem;
 }
 
+.bg-image-auth {
+
+}
+
 .nav-bar {
     background-color: #0E0E0E;
     border-bottom: 1px solid #1B6873;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav-home-btn {
@@ -190,4 +235,47 @@
 .btn-upd {
     --bs-btn-border-radius: 16px !important;
     --bs-btn-font-weight: 500 !important;
+}
+
+.sign-in-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 75vh;
+
+}
+
+.auth-bg-image {
+  background-image: url('https://static.vecteezy.com/system/resources/previews/034/001/957/non_2x/abstract-purple-smoke-free-png.png');
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+  background-position: calc(50% + 2rem) calc(50% - 1rem);
+}
+
+.form-signin {
+  flex: 1; /* Grow to fill available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-form {
+    color: white !important;
+    background-color: #1e1e1e !important;
+    border: 1px solid #0fa2bf !important;
+}
+
+.auth-form-text {
+    color: #AEAEAE !important;
+}
+
+.form-floating label {
+    color: #838383 !important;
+    --bs-body-bg: none !important;
+}
+
+.btn-reg {
+    --bs-btn-bg: #f00de4 !important;
+    --bs-btn-border-color: #ffffff !important;
 }
