@@ -58,7 +58,7 @@
                 <li><a href="{% url 'index' %}" class="nav-link nav-home-btn px-2">Home</a></li>
                 <li><a href="#" class="nav-link px-2 text-white" onclick="scrollToElement('targetElement')">Features</a>
                 </li>
-                <li><a href="{% url 'dashboard' %}" class="nav-link px-2 text-white">Portfolio</a></li>
+                <li><a href="{% url 'login' %}" class="nav-link px-2 text-white">Portfolio</a></li>
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -67,8 +67,8 @@
             </form>
 
             <div class="text-end me-2">
-                <a href="{% url 'dashboard' %}" class="btn login-btn me-2">Login</a>
-                <a href="#" class="btn btn-info btn-upd">Get Started</a>
+                <a href="{% url 'login' %}" class="btn login-btn me-2">Login</a>
+                <a href="{% url 'register' %}" class="btn btn-info btn-upd">Get Started</a>
             </div>
 
             <div class="dropdown text-end">

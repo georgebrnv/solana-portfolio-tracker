@@ -16,5 +16,8 @@ def index(request):
         'faq_questions': FAQ,
     })
 
-def dashboard(request):
-    return render(request, 'dashboard/dashboard.html')
+def login(request):
+    return render(request, 'dashboard/login.html')
+
+def register(request):
+    return render(request, 'dashboard/register.html')

@@ -70,6 +70,14 @@
     color: #8733db !important;
 }
 
+.form-control-auth {
+    margin-right: 3rem !important;
+}
+
+.form-floating {
+    input-padding-t: 10rem !important;
+}
+
 .form-control::placeholder {
     text-color: white;
 }
@@ -238,18 +246,32 @@
 }
 
 .sign-in-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 75vh;
-
+    display: flex;
+    flex-direction: column;
+    min-height: 75vh;
 }
 
-.auth-bg-image {
-  background-image: url('https://static.vecteezy.com/system/resources/previews/034/001/957/non_2x/abstract-purple-smoke-free-png.png');
+.auth-bg {
   background-repeat: no-repeat;
   justify-content: center;
   align-items: center;
-  background-position: calc(50% + 2rem) calc(50% - 1rem);
+}
+
+.login-bg-image {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/012/289/683/non_2x/watercolor-stain-element-with-watercolor-paper-texture-free-png.png');
+    background-position: calc(50% + 1rem) calc(50% + 4rem);
+}
+
+.reg-bg-image {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/012/289/703/non_2x/watercolor-stain-element-with-watercolor-paper-texture-free-png.png');
+    background-position: calc(50% + 2rem) calc(50% - 1rem);
+}
+
+.welcome-bg-image {
+    background-repeat: no-repeat;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/012/289/739/non_2x/watercolor-stain-element-with-watercolor-paper-texture-free-png.png');
+    background-position: calc(50% - 0rem) calc(50% - 0rem);
+    background-size: 52%;
 }
 
 .form-signin {
