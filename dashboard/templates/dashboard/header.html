@@ -15,16 +15,15 @@
 </head>
 <body class="bg-theme-color">
 
-<!--  NAVIGATION BAR  -->
-<header class="nav-bar p-3">
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+<header class="nav-bar">
+    <nav class="navbar navbar-expand-lg py-3" id="navbar" style="navbar-color: rgba(0, 0, 0, 0.55)">
+        <div class="container px-5">
+
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
 
                 <!--  SVG ICON  -->
-                <div class="svg-icon">
-                    <svg height="40px" width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
+                <div class="pr-3">
+                    <svg height="40px" width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xml:space="preserve"
                          fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                         <g id="SVGRepo_iconCarrier">
@@ -39,38 +38,49 @@
                 <a href="{% url 'index' %}" class="nav-link text-white nav-name-text">Track<span
                         class="text-info">off</span></a>
             </a>
-            <ul class="nav nav-bar-text col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="{% url 'index' %}" class="nav-link text-white px-2">Home</a></li>
-                <li><a href="#" class="nav-link px-2 text-white" onclick="scrollToElement('targetElement')">Features</a>
-                </li>
-                <li><a href="{% url 'portfolio' %}" class="nav-link px-2 text-white">Portfolio</a></li>
-            </ul>
 
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search" class="form-control nav-search-btn" placeholder="Coin, wallet address..."
-                       aria-label="Search">
-            </form>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-            <div class="text-end me-2">
-                <a href="{% url 'login' %}" class="btn login-btn me-2">Login</a>
-                <a href="{% url 'register' %}" class="btn btn-info btn-upd">Get Started</a>
-            </div>
-
-            <div class="dropdown text-end">
-                <a href="#" class="d-block link-body-emphasis text-decoration-none"
-                   data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://t3.ftcdn.net/jpg/00/64/67/80/360_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg"
-                         alt="mdo" width="32" height="32" class="rounded-circle">
-                </a>
-                <ul class="dropdown-menu text-small" style="">
-                    <li><a class="dropdown-item" href="{% url 'portfolio' %}">Portfolio</a></li>
-                    <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
+                <ul class="nav nav-bar-text col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="{% url 'index' %}" class="nav-link text-white px-2">Home</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white"
+                           onclick="scrollToElement('targetElement')">Features</a>
                     </li>
-                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    <li><a href="{% url 'portfolio' %}" class="nav-link px-2 text-white">Portfolio</a></li>
                 </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control nav-search-btn" placeholder="Coin, wallet address..."
+                           aria-label="Search">
+                </form>
+
+                <div class="text-end me-2">
+                    <a href="{% url 'login' %}" class="btn login-btn me-2">Login</a>
+                    <a href="{% url 'register' %}" class="btn btn-info btn-upd">Get Started</a>
+                </div>
+
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-body-emphasis text-decoration-none"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://t3.ftcdn.net/jpg/00/64/67/80/360_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg"
+                             alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small" style="">
+                        <li><a class="dropdown-item" href="{% url 'portfolio' %}">Portfolio</a></li>
+                        <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+
+                </div>
             </div>
         </div>
-    </div>
+    </nav>
 </header>

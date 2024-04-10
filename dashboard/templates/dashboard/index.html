@@ -1,8 +1,9 @@
 {% include 'dashboard/header.html' %}
+{% load static %}
 
 <!--  WELCOME SECTION (CREATE/LOG IN)  -->
 <div class="container welcome-bg-image py-5">
-    <div class="px-4 pt-5 mt-5 text-center">
+    <div class="px-4 pt-5 mt-5 text-center" id="welcome">
         <h1 class="welcome-title display-4 py-3 fw-bold">Solana Portfolio Tracker</h1>
         <div class="col-lg-6 mx-auto">
             <p class="welcome-secondary lead mb-4">Trackoff is a comprehensive tool for crypto investors looking
@@ -20,16 +21,13 @@
 </div>
 
 <div class="container">
-    <div class="px-4 mt-4 text-center border-bottom">
-        <div class="overflow-hidden" style="max-height: 47vh;">
-                <img src="https://assets-global.website-files.com/6525b50267a51878e75b286f/6526fab326c3fc64c66dd573_HomePageBackground1.png"
-                     class="cropped-image img-fluid" loading="lazy">
-        </div>
+    <div class="text-center border-bottom">
+        <img src="{% static 'dashboard/images/welcome-bg-img.png' %}" class="img-fluid">
     </div>
 </div>
 
 <!--  FEATURES  -->
-<div class="container" id="targetElement">
+<div class="container pd-1" id="targetElement">
     <hr class="divider">
 
     <!-- Feature #1 -->
@@ -42,8 +40,8 @@
                 tracker. With our
                 platform, you can:</p>
             <div class="feature-list">
-                <div class="row">
-                    <div class="col-sm-1">
+                <div class="row align-items-center">
+                    <div class="col-auto pb-3">
                         <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
                              data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -56,13 +54,13 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="col-md-8 justify-content-left text-align-left">
+                    <div class="col">
                         <p class="feature-list-text">Track the performance of your Solana tokens and NFT assets in
                             real-time</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-1">
+                <div class="row align-items-center">
+                    <div class="col-auto pb-3">
                         <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
                              data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -75,13 +73,13 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="col-md-8 justify-content-left text-align-left">
+                    <div class="col">
                         <p class="feature-list-text">View comprehensive insights into your portfolio's value
                             fluctuations and asset allocation</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-1">
+                <div class="row align-items-center">
+                    <div class="col-auto pb-3">
                         <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
                              data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -94,7 +92,7 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="col-md-8 justify-content-left text-align-left">
+                    <div class="col">
                         <p class="feature-list-text">Efficiently manage your Solana holdings with our user-friendly
                             interface</p>
                     </div>
@@ -104,7 +102,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 order-md-2">
+        <div class="col-md-6 order-md-2 pt-4">
             <img src="https://static.coinstats.app/onboarding/web/profit-loss.gif" class="img-fluid">
         </div>
     </div>
@@ -113,15 +111,15 @@
 
     <!-- Feature #2 -->
     <div class="row feature">
-        <div class="col-md-5 order-md-2">
+        <div class="col-md-5 order-md-2" id="rightColumn">
             <h2 class="feature-text-header">Seamless Wallet Integration for Hassle-Free Monitoring. <span
                     class="feature-text-header-secondary">See for yourself.</span>
             </h2>
             <p class="lead feature-description-text">Integrate your Solana wallet seamlessly with our tracker platform.
                 With our integration process, you can:</p>
             <div class="feature-list">
-                <div class="row">
-                    <div class="col-sm-1">
+                <div class="row align-items-center">
+                    <div class="col-auto pb-3">
                         <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
                              data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -134,13 +132,13 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="col-md-8 justify-content-left text-align-left">
+                    <div class="col">
                         <p class="feature-list-text">Easily sign up and connect your Solana wallet for instant
                             tracking</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-1">
+                <div class="row align-items-center">
+                    <div class="col-auto pb-3">
                         <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
                              data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -153,13 +151,13 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="col-md-8 justify-content-left text-align-left">
+                    <div class="col">
                         <p class="feature-list-text">Monitor your Solana holdings effortlessly, all from one centralized
                             dashboard</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-1">
+                <div class="row align-items-center">
+                    <div class="col-auto pb-3">
                         <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
                              data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -172,7 +170,7 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="col-md-8 justify-content-left text-align-left">
+                    <div class="col">
                         <p class="feature-list-text">Stay informed about your wallet's activity and asset movements with
                             real-time updates</p>
                     </div>
@@ -182,7 +180,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-7 order-md-1">
+        <div class="col-md-7 pt-4 order-md-1" id="leftColumn">
             <img src="https://static.coinstats.app/onboarding/web/buy-swap.gif" class="img-fluid">
         </div>
     </div>
@@ -191,15 +189,15 @@
 
     <!-- Feature #3 -->
     <div class="row feature">
-        <div class="col-md-5">
+        <div class="col-md-5 order-md-1">
             <h2 class="feature-text-header">Informed Decision-Making with Powerful Analytics. <span
                     class="feature-text-header-secondary">Checkmate.</span>
             </h2>
             <p class="lead feature-description-text">Empower yourself with insightful analytics and data-driven
                 insights. With our platform, you can:</p>
             <div class="feature-list">
-                <div class="row">
-                    <div class="col-sm-1">
+                <div class="row align-items-center">
+                    <div class="col-auto pb-3">
                         <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
                              data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -212,13 +210,13 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="col-md-8 justify-content-left text-align-left">
+                    <div class="col">
                         <p class="feature-list-text">Utilize powerful analytics tools to make informed decisions about
                             your Solana investments</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-1">
+                <div class="row align-items-center">
+                    <div class="col-auto pb-3">
                         <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
                              data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -231,13 +229,13 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="col-md-8 justify-content-left text-align-left">
+                    <div class="col">
                         <p class="feature-list-text">Access comprehensive market data and trends to optimize your
                             portfolio strategy</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-1">
+                <div class="row align-items-center">
+                    <div class="col-auto pb-3">
                         <svg fill="#000000" width="23px" height="23px" viewBox="0 0 24 24" id="check-mark-circle"
                              data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -250,7 +248,7 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="col-md-8 justify-content-left text-align-left">
+                    <div class="col">
                         <p class="feature-list-text">Execute strategic trades and adjustments based on real-time market
                             analysis"</p>
                     </div>
@@ -260,7 +258,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 pt-4 order-md-2">
             <img src="https://static.coinstats.app/onboarding/web/cs-wallet.gif" class="img-fluid">
         </div>
     </div>
@@ -275,7 +273,7 @@
         <h2 class="faq-title">Get Answers to All Your Questions</h2>
     </div>
     <div class="row text-center justify-content-center">
-        <p class="col-md-4 faq-secondary">Wondering what you can do with our Tracker? Find the answers below!</p>
+        <p class="col-md-7 faq-secondary">Wondering what you can do with our Tracker? Find the answers below!</p>
     </div>
     <div class="row justify-content-center py-2">
         <div class="col-md-8">

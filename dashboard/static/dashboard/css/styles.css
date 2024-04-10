@@ -40,10 +40,6 @@
     background: #000;
 }
 
-.svg-icon {
-    padding-right: 1rem;
-}
-
 .svg-social-btn:hover {
     fill: #0dcaf0 !important;
 }
@@ -54,7 +50,6 @@
 
 .nav-bar {
     background-color: #05090f;
-    border-bottom: 0px solid #1B6873;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -368,27 +363,57 @@
     justify-content: center;
 }
 
+.pr-3 {
+    padding-right: 1rem !important;
+}
+
 @media (max-width: 670px) {
-    .bg-theme-color {
-        padding-right: 1rem;
-        padding-left: 1rem;
+    .container {
+        --bs-gutter-x: 2.5rem !important;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .welcome-secondary {
         font-size: 1.1rem !important;
     }
+    .faq-secondary {
+        font-size: 1.1rem !important;
+    }
+    .scale-padding-768 {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
+    .feature-description-text {
+        font-size: 1rem !important;
+    }
+    .feature .col-md-5,
+    .feature .col-md-6 {
+        width: 100%;
+    }
+
+    #leftColumn {
+        order: 2 !important;
+    }
+    #rightColumn {
+        order: 1 !important;
+    }
+
+    #welcome {
+        padding-top: 0rem !important;
+        margin-top: 0rem !important;
+    }
 
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1199px) {
 
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1399px) {
 
 }
