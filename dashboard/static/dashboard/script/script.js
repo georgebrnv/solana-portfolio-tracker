@@ -28,7 +28,7 @@ const nftAssets = [
 
 // Function to generate carousel items dynamically
 function generateCarouselItems() {
-    const carouselInner = document.querySelector(".carousel-inner");
+    const carouselInner = document.querySelector(".carousel-nft-inner");
 
     // Clear existing carousel items
     carouselInner.innerHTML = "";

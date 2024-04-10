@@ -367,9 +367,23 @@
     padding-right: 1rem !important;
 }
 
+.pl-3 {
+    padding-left: 1rem !important;
+}
+
+.navbar-toggler {
+    border: 2px solid #303030 !important;
+}
+
 @media (max-width: 670px) {
     .container {
         --bs-gutter-x: 2.5rem !important;
+    }
+    .index-carousel-text-header {
+        font-size: 1.3rem !important;
+    }
+    .index-carousel-text-secondary {
+        font-size: 0.9rem !important;
     }
 }
 
@@ -411,7 +425,9 @@
 }
 
 @media (max-width: 1199px) {
-
+    .search-form {
+        padding-left: 1rem !important;
+    }
 }
 
 @media (max-width: 1399px) {

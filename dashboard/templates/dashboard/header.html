@@ -23,7 +23,8 @@
 
                 <!--  SVG ICON  -->
                 <div class="pr-3">
-                    <svg height="40px" width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xml:space="preserve"
+                    <svg height="40px" width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 512 512" xml:space="preserve"
                          fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                         <g id="SVGRepo_iconCarrier">
@@ -54,17 +55,15 @@
                     <li><a href="{% url 'portfolio' %}" class="nav-link px-2 text-white">Portfolio</a></li>
                 </ul>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search-formm" role="search">
                     <input type="search" class="form-control nav-search-btn" placeholder="Coin, wallet address..."
                            aria-label="Search">
                 </form>
 
-                <div class="text-end me-2">
-                    <a href="{% url 'login' %}" class="btn login-btn me-2">Login</a>
-                    <a href="{% url 'register' %}" class="btn btn-info btn-upd">Get Started</a>
-                </div>
-
-                <div class="dropdown text-end">
+                <div class="row justify-content-center align-items-center text-end me-2">
+                    <a href="{% url 'login' %}" class=" col-auto btn login-btn me-2">Login</a>
+                    <a href="{% url 'register' %}" class=" col-auto btn btn-info btn-upd">Get Started</a>
+                    <div class="col-auto dropdown text-end">
                     <a href="#" class="d-block link-body-emphasis text-decoration-none"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://t3.ftcdn.net/jpg/00/64/67/80/360_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg"
@@ -78,8 +77,11 @@
                         </li>
                         <li><a class="dropdown-item" href="#">Sign out</a></li>
                     </ul>
-
                 </div>
+                </div>
+
+
+
             </div>
         </div>
     </nav>
