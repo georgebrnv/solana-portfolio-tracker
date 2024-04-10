@@ -1,33 +1,29 @@
-
 {% include 'dashboard/header.html' %}
 
 <!--  WELCOME SECTION (CREATE/LOG IN)  -->
-<div class="">
-    <div class="container welcome-bg-image py-5">
-        <div class="px-4 pt-5 mt-5 text-center">
-            <h1 class="welcome-title display-4 py-3 fw-bold">Solana Portfolio Tracker</h1>
-            <div class="col-lg-6 mx-auto">
-                <p class="welcome-secondary lead mb-4">Our Tracker is a comprehensive tool for crypto investors looking
-                    to manage and
-                    monitor their Solana holdings. With intuitive features and real-time data, our platform empowers
-                    both
-                    seasoned traders and beginners to stay informed and make informed decisions in the dynamic world of
-                    decentralized finance.</p>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                    <button type="button" class="btn btn-info btn-lg px-4 me-sm-3">Create Account</button>
-                    <button type="button" class="btn btn-outline-light btn-lg px-4">Log In</button>
-                </div>
+<div class="container welcome-bg-image py-5">
+    <div class="px-4 pt-5 mt-5 text-center">
+        <h1 class="welcome-title display-4 py-3 fw-bold">Solana Portfolio Tracker</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="welcome-secondary lead mb-4">Trackoff is a comprehensive tool for crypto investors looking
+                to manage and
+                monitor their Solana holdings. With intuitive features and real-time data, our platform empowers
+                both
+                seasoned traders and beginners to stay informed and make informed decisions in the dynamic world of
+                decentralized finance.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                <button type="button" class="btn btn-info btn-lg px-4 me-sm-3">Create Account</button>
+                <button type="button" class="btn btn-outline-light btn-lg px-4">Log In</button>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="px-4 mt-4 text-center border-bottom">
-            <div class="overflow-hidden" style="max-height: 47vh;">
-                <div class="container">
-                    <img src="https://assets-global.website-files.com/6525b50267a51878e75b286f/6526fab326c3fc64c66dd573_HomePageBackground1.png"
-                         class="cropped-image rounded-3 shadow-lg" loading="lazy">
-                </div>
-            </div>
+</div>
+
+<div class="container">
+    <div class="px-4 mt-4 text-center border-bottom">
+        <div class="overflow-hidden" style="max-height: 47vh;">
+                <img src="https://assets-global.website-files.com/6525b50267a51878e75b286f/6526fab326c3fc64c66dd573_HomePageBackground1.png"
+                     class="cropped-image img-fluid" loading="lazy">
         </div>
     </div>
 </div>
@@ -38,7 +34,7 @@
 
     <!-- Feature #1 -->
     <div class="row feature">
-        <div class="col-md-5">
+        <div class="col-md-5 order-md-1">
             <h2 class="feature-text-header">Effortlessly Track and Manage Your Solana Holdings. <span
                     class="feature-text-header-secondary">So easy.</span>
             </h2>
@@ -108,8 +104,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5">
-            <img src="https://coinstats.app/_next/image?url=%2F_next%2Fstatic%2Fimages%2Fnew-portfolio-banner-solana-d43cfea041bed2db8eaa24d96ee294f6.svg&w=3840&q=75">
+        <div class="col-md-6 order-md-2">
+            <img src="https://static.coinstats.app/onboarding/web/profit-loss.gif" class="img-fluid">
         </div>
     </div>
 
@@ -186,10 +182,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5 order-md-1">
-            <div class="img-container">
-                <img src="https://coinstats.app/_next/image?url=%2F_next%2Fstatic%2Fimages%2Fnew-portfolio-banner-analytics-19e3f2ee456e1b567d7d122e2888a00b.svg&w=3840&q=75">
-            </div>
+        <div class="col-md-7 order-md-1">
+            <img src="https://static.coinstats.app/onboarding/web/buy-swap.gif" class="img-fluid">
         </div>
     </div>
 
@@ -266,8 +260,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5">
-            <img src="https://coinstats.app/_next/image?url=%2F_next%2Fstatic%2Fimages%2Fnew-portfolio-banner-analyze-3018a98c6bf6b2cdc84a386f02482a48.svg&w=3840&q=75">
+        <div class="col-md-6">
+            <img src="https://static.coinstats.app/onboarding/web/cs-wallet.gif" class="img-fluid">
         </div>
     </div>
     <hr class="divider">
@@ -277,13 +271,13 @@
 
 <!--  FAQ   -->
 <div class="container py-3">
-    <div class="row text-center faq py-4">
+    <div class="row text-center faq pt-4">
         <h2 class="faq-title">Get Answers to All Your Questions</h2>
-        <div class="row justify-content-center">
-            <p class="col-md-4 faq-secondary">Wondering what you can do with our Tracker? Find the answers below!</p>
-        </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row text-center justify-content-center">
+        <p class="col-md-4 faq-secondary">Wondering what you can do with our Tracker? Find the answers below!</p>
+    </div>
+    <div class="row justify-content-center py-2">
         <div class="col-md-8">
             {% for question, answer in faq_questions.items %}
             <div class="faq-item">

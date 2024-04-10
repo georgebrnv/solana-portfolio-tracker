@@ -44,16 +44,27 @@
     padding-right: 1rem;
 }
 
-.bg-image-auth {
+.svg-social-btn:hover {
+    fill: #0dcaf0 !important;
+}
 
+.card-bottom {
+    height: 24rem !important;
 }
 
 .nav-bar {
-    background-color: #0E0E0E;
-    border-bottom: 1px solid #1B6873;
+    background-color: #05090f;
+    border-bottom: 0px solid #1B6873;
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: top 0.45s;
+}
+
+.nav-name-text {
+    font-weight: 1000 !important;
+    font-size: 1.3rem !important;
+    margin-right: 2rem !important;
 }
 
 .nav-home-btn {
@@ -62,8 +73,12 @@
 
 .nav-bar-text {
     font-size: 1.1rem;
-    font-weight: 700;
+    font-weight: 300;
     font-color: #C9C9C9;
+}
+
+.nav-link:hover {
+    color: #0dcaf0 !important;
 }
 
 .nav-link {
@@ -130,7 +145,7 @@
 }
 
 .divider {
-    margin: 5rem 0;
+    margin: 3rem;
 }
 
 .footer-divider {
@@ -216,9 +231,6 @@
     padding-bottom: 0.5rem;
 }
 
-.img-container {
-    padding-right: 3rem;
-}
 
 .nav-search-btn {
     background-color: black !important;
@@ -236,8 +248,20 @@
 }
 
 .login-btn {
+    font-size: 1.1rem !important;
+    border: 1px solid white !important;
+    border-radius: 20px !important;
     color: white !important;
-    font-weight: 600 !important;
+    font-weight: 300 !important;
+}
+.login-btn:hover {
+    color: #0dcaf0 !important;
+    border-color: #0dcaf0 !important;
+}
+
+.btn-info {
+    --bs-btn-hover-color: white !important;
+    --bs-btn-hover-bg: #1a1a1a !important;
 }
 
 .btn-upd {
@@ -300,4 +324,71 @@
 .btn-reg {
     --bs-btn-bg: #f00de4 !important;
     --bs-btn-border-color: #ffffff !important;
+}
+
+.card {
+    --bs-card-bg: #002533 !important;
+}
+
+.max-h-full {
+    max-height: 100% !important;
+}
+
+.portfolio-head-text {
+    color: white;
+    text-weight: 500;
+    text-transform: uppercase;
+}
+
+.top-holdings-text {
+    color: #c4c4c4 !important;
+    text-weight: 500 !important;
+    font-size: 0.85rem;
+}
+
+.profile-header-text {
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 500;
+}
+
+.profile-text {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    font-weight: 200;
+}
+
+.profile-card {
+    border-radius: 15px !important;
+}
+
+.profile-pic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 670px) {
+    .bg-theme-color {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-secondary {
+        font-size: 1.1rem !important;
+    }
+}
+
+@media (max-width: 992px) {
+
+}
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 1400px) {
+
 }

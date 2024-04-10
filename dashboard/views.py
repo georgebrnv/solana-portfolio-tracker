@@ -21,3 +21,9 @@ def login(request):
 
 def register(request):
     return render(request, 'dashboard/register.html')
+
+def portfolio(request):
+    return render(request, 'dashboard/portfolio.html')
+
+def profile(request):
+    return render(request, 'dashboard/profile.html')

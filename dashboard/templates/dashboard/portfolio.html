@@ -1,0 +1,193 @@
+{% include 'dashboard/header.html' %}
+
+<div class="container pt-5">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-white">Portfolio</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    </div>
+
+    <div class="row">
+
+        <!-- Net Worth -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card h-100 py-2">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col mr-2">
+                            <div class="portfolio-head-text mb-1">
+                                Net Worth
+                            </div>
+                            <div class="h5 mb-0 text-success">$123,456</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top gainer -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col mr-2">
+                            <div class="portfolio-head-text mb-1">
+                                Top Gainer
+                            </div>
+                            <div class="h5 mb-0 text-success">$215,000</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biggest Position -->
+        <div class="col-xl-6 col-md-6 mb-4">
+            <div class="card h-100 py-2">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col mr-2">
+                            <div class="portfolio-head-text mb-1">Biggest Position
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 text-info">10%</div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 10%"
+                                             aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <!-- Chart -->
+        <div class="col-xl-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="chart-area">
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <canvas id="myAreaChart" width="457" height="320"
+                                style="display: block; width: 457px; height: 320px;"
+                                class="chartjs-render-monitor"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- News -->
+        <div class="col-xl-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="chart-pie">
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <canvas id="myPieChart" width="307" height="320"
+                                style="display: flex; width: 307px; height: 320px;"
+                                class="chartjs-render-monitor"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <!-- TOP-5 Holdings -->
+        <div class="col-lg-5">
+            <div class="card mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 text-white">Top 5 Holdings</h6>
+                </div>
+                <div class="card-body card-bottom">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7">
+
+            <!-- CAROUSEL -->
+            <div class="card mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 text-white">Your NFT assets</h6>
+                </div>
+                <div class="card-body card-bottom">
+                    <!--  CAROUSEL  -->
+                    <div class="">
+                        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0"
+                                        aria-label="Slide 1" class="active"
+                                        aria-current="true"></button>
+                                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"
+                                        aria-label="Slide 2"
+                                        class=""></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="container">
+
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="container">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
+                                    data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
+                                    data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+{% include 'dashboard/footer.html' %}
