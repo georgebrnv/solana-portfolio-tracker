@@ -84,12 +84,16 @@ function renderNFTCards() {
         const screenWidth = window.innerWidth;
         if (screenWidth > 1200) {
             numCardsPerPage = 3;
+            cardWidth = 'calc(100% / 3.2 - 1rem)'
         } else if (screenWidth > 575) {
             numCardsPerPage = 3;
-        } else if (screenWidth > 375) {
+            cardWidth = 'calc(100% / 2.9 - 1rem)'
+        } else if (screenWidth > 400) {
             numCardsPerPage = 2;
+            cardWidth = 'calc(100% / 2.15 - 1rem)'
         } else {
             numCardsPerPage = 1;
+            cardWidth = 'calc(100% / 1.2 - 1rem)'
         }
 
         // Remove existing carousel items and indicators
@@ -112,11 +116,19 @@ function renderNFTCards() {
             // Render NFT cards for this carousel item
             const rowContainer = document.createElement('div');
             rowContainer.classList.add('d-flex', 'justify-content-between', 'flex-wrap');
+            rowContainer.setAttribute('id', 'rowContainer');
 
             for (let j = i * numCardsPerPage; j < (i + 1) * numCardsPerPage && j < nftData.length; j++) {
                 const nft = nftData[j];
                 const card = createNFTCard(nft);
+                card.style.width = cardWidth;
                 rowContainer.appendChild(card);
+            }
+
+            // Center the row container if there's only one card and screen width is less than 375px
+            if (screenWidth <= 400) {
+                carouselItem.classList.add('carousel-item-400');
+                carouselItem.classList.remove('px-3')
             }
 
             carouselItem.appendChild(rowContainer);
@@ -133,6 +145,22 @@ function renderNFTCards() {
             }
             carouselIndicators.appendChild(indicator);
         }
+
+        // Get all carousel items
+        const rowContainers = document.querySelectorAll('#rowContainer');
+
+        // Iterate through each carousel item
+        rowContainers.forEach(rowContainer => {
+            // Get all card divs within the current carousel item
+            const cards = rowContainer.querySelectorAll('.card');
+
+            // Check if there are exactly 2 card divs
+            if (cards.length === 2) {
+                // Add the 'center-2' class to the carousel item
+                rowContainer.classList.add('center-2');
+                rowContainer.classList.remove('justify-content-between')
+            }
+        });
     }
 
     // Initial render
@@ -146,7 +174,6 @@ function renderNFTCards() {
 function createNFTCard(nft) {
     const card = document.createElement('div');
     card.classList.add('card', 'nft-carousel-card');
-    card.style.width = 'calc(100% / 3.2 - 1rem)';
 
     const img = document.createElement('img');
     img.src = nft.imgUrl;

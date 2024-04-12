@@ -100,12 +100,6 @@
 
 .carousel-image {
     object-fit: cover;
-    height: 60vh;
-}
-
-.cropped-image {
-    object-fit: cover;
-    height: 78vh;
 }
 
 .carousel--img-div {
@@ -375,12 +369,6 @@
     .container {
         --bs-gutter-x: 2.5rem !important;
     }
-    .index-carousel-text-header {
-        font-size: 1.3rem !important;
-    }
-    .index-carousel-text-secondary {
-        font-size: 0.9rem !important;
-    }
 }
 
 @media (max-width: 767px) {
@@ -417,7 +405,6 @@
         padding-top: 0rem !important;
         margin-top: 0rem !important;
     }
-
 }
 
 @media (max-width: 1199px) {
@@ -426,15 +413,11 @@
     }
 }
 
-@media (max-width: 1399px) {
-
-}
-
 .carousel-nft-img {
     border-radius: 0.35rem !important;
 }
 
-.carousel-indicators {
+.carousel-indicators-relative {
     position: relative !important;
 }
 
@@ -451,4 +434,76 @@
 
 .price {
     color: white;
+}
+
+.carousel-item-400 {
+    width: 110% !important;
+    padding-left: 3rem !important;
+    padding-right: 1rem !important;
+}
+
+.center-2 {
+    justify-content: center !important;
+    gap: 50px;
+}
+
+@media (min-width: 50px) {
+    .index-carousel-text-header {
+        font-size: 1rem !important;
+    }
+    .index-carousel-text-secondary {
+        font-size: 0.72rem !important;
+    }
+    .carousel-image {
+        height: 34vh !important;
+    }
+}
+@media (min-width: 429px) {
+    .index-carousel-text-header {
+        font-size: 1.4rem !important;
+    }
+    .index-carousel-text-secondary {
+        font-size: 1.1rem !important;
+    }
+    .carousel-image {
+        height: 36vh !important;
+    }
+}
+@media (min-width: 611px) {
+    .index-carousel-text-header {
+        font-size: 1.6rem !important;
+    }
+    .index-carousel-text-secondary {
+        font-size: 1.3rem !important;
+    }
+}
+@media (min-width: 767px) {
+    .index-carousel-text-header {
+        font-size: 1.7rem !important;
+    }
+    .index-carousel-text-secondary {
+        font-size: 1.3rem !important;
+    }
+    .carousel-image {
+        height: 35vh !important;
+    }
+}
+@media (min-width: 991px) {
+    .index-carousel-text-header {
+        font-size: 1.8rem !important;
+    }
+    .index-carousel-text-secondary {
+        font-size: 1.4rem !important;
+    }
+    .carousel-image {
+        height: 35vh !important;
+    }
+}
+@media (min-width: 1199px) {
+    .index-carousel-text-header {
+        font-size: 2rem !important;
+    }
+    .index-carousel-text-secondary {
+        font-size: 1.6rem !important;
+    }
 }
