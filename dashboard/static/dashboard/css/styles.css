@@ -103,10 +103,6 @@
     height: 60vh;
 }
 
-.carousel-item {
-    height: 270px;
-}
-
 .cropped-image {
     object-fit: cover;
     height: 78vh;
@@ -432,4 +428,27 @@
 
 @media (max-width: 1399px) {
 
+}
+
+.carousel-nft-img {
+    border-radius: 0.35rem !important;
+}
+
+.carousel-indicators {
+    position: relative !important;
+}
+
+.nft-carousel-card {
+    --bs-card-border-width: 1px !important;
+    --bs-card-border-color: #454545 !important;
+    width: 10rem;
+}
+
+.nft-card-title {
+    font-size: 0.9rem;
+    color: white;
+}
+
+.price {
+    color: white;
 }
