@@ -29,16 +29,20 @@ def register_user(request):
 def login_user(request):
 
     if request.method == 'POST':
-        email = request.POST['email']
+        email_username = request.POST['email_username']
         password = request.POST['password']
 
         # Returns 'None' if credentials are invalid.
-        user = authenticate(request, username=email, password=password)
+        user = authenticate(request, username=email_username, password=password)
+
+        if user is None:
+            user = authenticate(request, email=email_username, password=password)
 
         if user is not None:
             login(request, user)
             return redirect('index')
         else:
+            # Authentication failed for both username and email
             return redirect('login')
     else:
         return render(request, 'authentication/login.html')

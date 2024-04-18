@@ -160,7 +160,7 @@ cython_debug/
 .idea/
 
 # Profile images
-media/profile_images/
+media/user_profile/profile_images/
 
 # All migrations folders
 **/migrations/
