@@ -16,14 +16,7 @@ def index(request):
         'faq_questions': FAQ,
     })
 
-def login(request):
-    return render(request, 'dashboard/login.html')
-
-def register(request):
-    return render(request, 'dashboard/register.html')
 
 def portfolio(request):
     return render(request, 'dashboard/portfolio.html')
 
-def profile(request):
-    return render(request, 'dashboard/profile.html')

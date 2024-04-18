@@ -1,0 +1,66 @@
+{% include 'dashboard/header.html' %}
+
+<div class="container col-md-8 pt-5">
+    <div class="card profile-card px-3 py-2">
+        <div class="card-body">
+            <div class="row align-items-center">
+
+                <div class="col-md-6 order-md-2">
+                    <a class="profile-pic my-2">
+                        <img src="{{ user.profile_image.image.url }}"
+                         alt="Profile Image" width="232" height="232" class="rounded-circle img-fluid">
+                    </a>
+                </div>
+
+                <div class="col-md-6 order-md-1">
+                    <h4 class="profile-header-text mb-3 ">Profile Info</h4>
+                    <form method="POST" action="{% url 'profile' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="profile-text" for="firstName">First name</label>
+                                <input name="first_name" type="text" class="form-control" id="firstName" placeholder="John" value="{{ user.first_name }}">
+                                <div class="invalid-feedback">
+                                    Valid first name is required.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="profile-text" for="lastName">Last name</label>
+                                <input name="last_name" type="text" class="form-control" id="lastName" placeholder="Johnson" value="{{ user.Last_name }}">
+                                <div class="invalid-feedback">
+                                    Valid last name is required.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="profile-text" for="username">Username</label>
+                            <div class="input-group">
+                                <input name="username" type="text" class="form-control" id="username" placeholder="your_nickname" value="{{ user.username }}">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="profile-text" for="email">Email <span class="">(Optional)</span></label>
+                            <input name="email" type="email" class="form-control" id="email" placeholder="you@example.com" value="{{ user.email }}">
+                            <div class="invalid-feedback">
+                                Please enter a valid email address for shipping updates.
+                            </div>
+                        </div>
+
+                        <div class='mb-3'>
+                            <label class="profile-text">Change Profile Picture</label>
+                            <input name="image" class="form-control choose-file-btn" type="file">
+                        </div>
+
+                        <hr class="mb-4">
+                        <button class="btn btn-info btn-md btn-block" type="submit">Save profile info</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'dashboard/footer.html' %}

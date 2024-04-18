@@ -1,0 +1,27 @@
+{% include 'dashboard/header.html' %}
+
+<div class="auth-bg login-bg-image">
+    <div class="container sign-in-container">
+        <main class="form-signin">
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <h1 class="h3 mb-3 fw-normal text-light">Log In</h1>
+                <div class="form-floating">
+                    <input type="email" class="form-control form-control-auth auth-form" id="floatingInput"
+                           placeholder="name@example.com" name="email">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating pb-4 mt-3">
+                    <input type="password" class="form-control form-control-auth auth-form" id="floatingPassword" placeholder="Password" name="password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <button class="btn btn-info w-100 py-2" type="submit">Log In</button>
+                <p class="auth-form-text mb-1 pt-3">Don't have an account?</p>
+                <a href="{% url 'register' %}" class="btn btn-info btn-reg w-100 py-2" type="submit">Register</a>
+            </form>
+        </main>
+    </div>
+</div>
+
+
+{% include 'dashboard/footer.html' %}
