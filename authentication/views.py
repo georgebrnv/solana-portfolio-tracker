@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 from .decorators import redirect_authenticated_user
 
@@ -14,11 +15,16 @@ def register_user(request):
         password = request.POST['password']
         confirm_password = request.POST['confirm_password']
 
+        if UserAuth.objects.get(email=email):
+            messages.error(request, 'User with this email already exists. Please log in or use a different email.')
+            return redirect('register')
+
         if password == confirm_password:
             user = UserAuth.objects.create_user(username=email, email=email, password=password)
             login(request, user)
             return redirect('index')
         else:
+            messages.error(request, 'Passwords you entered did NOT match. Please try again')
             return redirect('register')
 
     else:
@@ -42,7 +48,7 @@ def login_user(request):
             login(request, user)
             return redirect('index')
         else:
-            # Authentication failed for both username and email
+            messages.error(request, 'Authorization failed. Try again.')
             return redirect('login')
     else:
         return render(request, 'authentication/login.html')
@@ -51,4 +57,5 @@ def login_user(request):
 @login_required
 def logout_user(request):
     logout(request)
+    messages.success(request, 'You successfully logged out.')
     return render(request, 'authentication/login.html')

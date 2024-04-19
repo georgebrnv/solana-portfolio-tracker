@@ -13,8 +13,13 @@
                 seasoned traders and beginners to stay informed and make informed decisions in the dynamic world of
                 decentralized finance.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                {% if user.is_authenticated %}
+                <a href="{% url 'portfolio' %}" type="button" class="btn btn-info btn-lg px-4 me-sm-3">Portfolio</a>
+                <a href="{% url 'profile' %}" type="button" class="btn btn-outline-light btn-lg px-4">Profile</a>
+                {% else %}
                 <a href="{% url 'register' %}" type="button" class="btn btn-info btn-lg px-4 me-sm-3">Create Account</a>
                 <a href="{% url 'login' %}" type="button" class="btn btn-outline-light btn-lg px-4">Log In</a>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -98,7 +103,11 @@
                     </div>
                 </div>
                 <div class="py-2">
-                    <button type="button" class="btn btn-info btn-lg px-4">Join Us Now</button>
+                    {% if user.is_authenticated %}
+                        <a href='{% url "portfolio" %}' type="button" class="btn btn-info btn-lg px-4">Try it Now</a>
+                    {% else %}
+                        <a href='{% url "register" %}' type="button" class="btn btn-info btn-lg px-4">Join Us Now</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -176,7 +185,11 @@
                     </div>
                 </div>
                 <div class="py-2">
-                    <button type="button" class="btn btn-info btn-lg px-4">Sign Up</button>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'portfolio' %}" type="button" class="btn btn-info btn-lg px-4">Track My Wallet</a>
+                    {% else %}
+                        <a href="{% url 'register' %}" type="button" class="btn btn-info btn-lg px-4">Sign Up</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -254,7 +267,11 @@
                     </div>
                 </div>
                 <div class="py-2">
-                    <button type="button" class="btn btn-info btn-lg px-4">Learn More</button>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'portfolio' %}" type="button" class="btn btn-info btn-lg px-4">Go to Assets</a>
+                    {% else %}
+                        <a href="{% url 'register' %}" type="button" class="btn btn-info btn-lg px-4">Learn More</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -315,7 +332,13 @@
                             the tracker platform with a
                             streamlined integration process, allowing you to effortlessly monitor your cryptocurrency
                             holdings.</p>
-                        <p><a class="btn btn-lg btn-info" href="#">Sign Up Today</a></p>
+                        <p>
+                            {% if user.is_authenticated %}
+                                <a class="btn btn-lg btn-info" href="{% url 'portfolio' %}">Go to Wallet</a>
+                            {% else %}
+                                <a class="btn btn-lg btn-info" href="{% url 'register' %}">Sign Up Today</a>
+                            {% endif %}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -331,7 +354,13 @@
                             assets in real-time, providing you with a
                             comprehensive
                             overview of your portfolio's performance and value fluctuations.</p>
-                        <p><a class="btn btn-lg btn-info" href="#">Learn more</a></p>
+                        <p>
+                            {% if user.is_authenticated %}
+                                <a class="btn btn-lg btn-info" href="{% url 'portfolio' %}">My NFT's</a>
+                            {% else %}
+                                <a class="btn btn-lg btn-info" href="{% url 'register' %}">Learn more</a>
+                            {% endif %}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -345,7 +374,13 @@
                         <h1 class="index-carousel-text-header">Informed Decision-Making</h1>
                         <p class="index-carousel-text-secondary opacity-75">Utilize powerful analytics and insights to make informed decisions regarding your Solana
                                 investments, empowering you to execute strategic trades and optimize your portfolio.</p>
-                        <p><a class="btn btn-lg btn-info" href="#">Join Now</a></p>
+                        <p>
+                            {% if user.is_authenticated %}
+                                <a class="btn btn-lg btn-info" href="{% url 'portfolio' %}">Go to Portfolio</a>
+                            {% else %}
+                                <a class="btn btn-lg btn-info" href="{% url 'register' %}">Join Now</a>
+                            {% endif %}
+                        </p>
                     </div>
                 </div>
             </div>
