@@ -14,8 +14,8 @@ function closePopup() {
 }
 
 function saveWallet() {
-    const walletInput = document.getElementById('walletInput').value;
-    console.log('Wallet address:', walletInput);
+//    const walletInput = document.getElementById('walletInput').value;
+//    console.log('Wallet address:', walletInput);
     closePopup();
 }
 
@@ -79,43 +79,7 @@ window.addEventListener('scroll', () => {
 
 
 // NFT CAROUSEL ASSETS
-const nftData = [
-    {
-        imgUrl: "https://lh3.googleusercontent.com/nsZk2m9zkO3-fakZRYaXpqVSAFMS3fewSlKS-GhTwTbNEnZVrtymCAc-tuciJrEitgXqA4sUTj6dNtgQ2lljIZOkp-nlbtWmlA",
-        title: "Backpack T-Shirt",
-        description: "",
-        currency1: { name: "SOL", price: 0.5 },
-        currency2: { name: "$", price: 100 }
-    },
-    {
-        imgUrl: "https://lh3.googleusercontent.com/yHCGA39S7d5AHCbHKY9g1j4gjU57SUFhyPL9Ph855JGTkWVYaHpZAmcdhnWc1TsZW7tP2XSUtxY4m2_CubJ5LUB5oeslfWSeIFk=k",
-        title: "Backpack Surf",
-        description: "",
-        currency1: { name: "SOL", price: 0.25 },
-        currency2: { name: "$", price: 50 }
-    },
-    {
-        imgUrl: "https://lh3.googleusercontent.com/553o-snGZrBwiyalIG_qchkn5Yz5TEuOqBb2EnPYTRCucLGY5lmtSLCXtY7Qyu1S9FZkaZgVkVGLKKJE2CjvY6xEUOnMQqQiCg",
-        title: "Backpack Surf",
-        description: "",
-        currency1: { name: "SOL", price: 0.25 },
-        currency2: { name: "$", price: 50 }
-    },
-    {
-        imgUrl: "https://lh3.googleusercontent.com/WOHTwAZMwuQdyLKwsypd2a_DzcPOE1OVlwfV8fegeOWwd4E0ApYsMGbSkh2uZviCETNyttJM7g_-7l9gTrP3NlOapzO9f1KRpA",
-        title: "Backpack Surf",
-        description: "",
-        currency1: { name: "SOL", price: 0.25 },
-        currency2: { name: "$", price: 50 }
-    },
-    {
-        imgUrl: "https://lh3.googleusercontent.com/detHgC43iIiwrlClFQ5E6t-rMuZdPj7u9tlQfXtcGgkyA6x6Irm2EAvBIDBWShEzAq0y9-TSwOl4HcrIsCY76-7RFkd9ZXaTFw",
-        title: "Backpack Surf",
-        description: "",
-        currency1: { name: "SOL", price: 0.25 },
-        currency2: { name: "$", price: 50 }
-    }
-];
+const nftData = verifiedNFTs
 
 function renderNFTCards() {
     const cardBody = document.querySelector('.card-body');
@@ -228,10 +192,6 @@ function createNFTCard(nft) {
     title.classList.add('nft-card-title');
     title.textContent = nft.title;
 
-    const description = document.createElement('div');
-    description.classList.add('text-white');
-    description.innerHTML = `<p>${nft.description}</p>`;
-
     const currencies = document.createElement('div');
     currencies.classList.add('d-flex', 'justify-content-between');
 
@@ -242,7 +202,7 @@ function createNFTCard(nft) {
     currency2.innerHTML = `<span class="badge bg-primary text-white">${nft.currency2.name}</span><span class="price">${nft.currency2.price}</span>`;
 
     currencies.append(currency1, currency2);
-    cardBody.append(title, description, currencies);
+    cardBody.append(title, currencies);
     card.append(img, cardBody);
 
     return card;

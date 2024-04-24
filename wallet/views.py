@@ -33,24 +33,24 @@ def add_wallet(request):
         return redirect('profile')
 
 
-# Get all wallet assets
-def helius_api_request(request):
+
+def verified_nfts(request):
     user = request.user
 
     body = {
         'jsonrpc': '2.0',
         'id': 'my-id',
-        'method': 'getAssetsByOwner',
+        'method': 'searchAssets',
         'params': {
             'ownerAddress': user.solana_wallet.solana_wallet_address,
             'page': 1,
-            'limit': 1000,
+            'limit': 300,
+            'creatorVerified': True,
             'displayOptions': {
                 'showUnverifiedCollections': False,
-                'showCollectionMetadata': False,
+                'showCollectionMetadata': True,
                 'showGrandTotal': False,
-                'showFungible': True,
-                'showNativeBalance': True,
+                'showNativeBalance': False,
                 'showInscription': False,
                 'showZeroBalance': False,
             },
@@ -58,8 +58,23 @@ def helius_api_request(request):
     }
 
     response = requests.post(url=URL, headers=headers, json=body)
-    all_assets_data = response.json()
-    return all_assets_data
+    verified_nfts_data = response.json()['result']
+
+    verified_nfts_list = []
+
+    for nft in verified_nfts_data['items']:
+
+        try:
+            nft_image_uri = nft['content']['links']['image']
+            nft_name = nft['content']['metadata']['name']
+            currency1 = { 'name': "SOL", 'price': 0.5 }
+            currency2 = { 'name': '$', 'price': 100 }
+
+            verified_nfts_list.append({ 'imgUrl': nft_image_uri, 'title': nft_name, 'currency1': currency1, 'currency2': currency2 })
+        except:
+            continue
+
+    return verified_nfts_list
 
 
 # Get total account balance in SOL and USD
@@ -97,7 +112,11 @@ def fungible_token_balance(request):
 
     for token in token_balance_data['items']:
         token_info = token['token_info']
-        token_symbol = token_info['symbol']
+
+        try:
+            token_symbol = token_info['symbol']
+        except KeyError:
+            continue
 
         token_total_price = token_info['price_info']['total_price']
         token_amount = token_info['price_info']['total_price'] / token_info['price_info']['price_per_token']
@@ -116,4 +135,4 @@ def fungible_token_balance(request):
     # Account Balance in USD
     account_balance = total_solana_price + token_sum_price
 
-    return [token_balance_data, total_solana_price, account_balance]
+    return [total_solana_price, account_balance]
