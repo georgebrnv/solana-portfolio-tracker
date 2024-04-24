@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 @login_required
@@ -8,10 +9,12 @@ def profile(request):
     if request.method == 'POST':
 
         user = request.user
+        messages_bool = False
 
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         username = request.POST['username']
+        solana_wallet = request.POST['solana_wallet']
         email = request.POST['email']
 
         # Image update
@@ -24,20 +27,32 @@ def profile(request):
             user_image.image = image
             # Update DB
             user_image.save()
+            messages_bool = True
 
         if first_name != user.first_name:
             user.first_name = first_name
+            messages_bool = True
 
         if last_name != user.last_name:
             user.last_name = last_name
+            messages_bool = True
 
         if username != user.username:
             user.username = username
+            messages_bool = True
+
+        if solana_wallet != user.solana_wallet.solana_wallet_address:
+            user.solana_wallet.solana_wallet_address = solana_wallet
+            user.solana_wallet.save()
+            messages_bool = True
 
         if email != user.email:
             user.email = email
+            messages_bool = True
 
         user.save()
+        if messages_bool:
+            messages.success(request, 'Your settings has been successfully updated.')
 
         return redirect('profile')
 

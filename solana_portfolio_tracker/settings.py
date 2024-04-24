@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +26,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9l8hg3!lyhvi3ad#_1k)g+$2d)%3-z@#yc!s5h*nm36v7uox$o'
+SECRET_KEY = os.getenv('DJANGO_SETTINGS_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0", "172.20.17.80", "127.0.0.1"]
+ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1"]
+
+
+# Helius credentials
+HELIUS_KEY_ID = os.getenv('HELIUS_KEY_ID')
 
 
 # Application definition
@@ -41,6 +50,7 @@ INSTALLED_APPS = [
     'dashboard',
     'authentication',
     'user_profile',
+    'wallet',
 ]
 
 MIDDLEWARE = [

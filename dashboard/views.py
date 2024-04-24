@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from wallet.views import fungible_token_balance
+
 FAQ = {
     "What is Solana?": "Solana is a high-performance blockchain platform designed for decentralized applications and crypto projects.",
     "How does Solana achieve high throughput?": "Solana achieves high throughput through its unique consensus mechanism called Proof of History (PoH), which timestamps transactions before they are included in a block.",
@@ -18,5 +20,14 @@ def index(request):
 
 
 def portfolio(request):
-    return render(request, 'dashboard/portfolio.html')
+
+    wallet_data = fungible_token_balance(request)
+
+    total_solana_price = round(wallet_data[1], 2)
+    account_balance = round(wallet_data[2], 2)
+
+    return render(request, 'dashboard/portfolio.html', context={
+        'total_solana_price': total_solana_price,
+        'account_balance': account_balance,
+    })
 

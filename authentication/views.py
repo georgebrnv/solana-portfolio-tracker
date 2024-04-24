@@ -15,7 +15,7 @@ def register_user(request):
         password = request.POST['password']
         confirm_password = request.POST['confirm_password']
 
-        if UserAuth.objects.get(email=email):
+        if UserAuth.objects.filter(email=email).exists():
             messages.error(request, 'User with this email already exists. Please log in or use a different email.')
             return redirect('register')
 
@@ -24,7 +24,7 @@ def register_user(request):
             login(request, user)
             return redirect('index')
         else:
-            messages.error(request, 'Passwords you entered did NOT match. Please try again')
+            messages.error(request, 'Passwords you entered did NOT match. Please try again.')
             return redirect('register')
 
     else:

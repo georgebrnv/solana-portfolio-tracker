@@ -1,3 +1,7 @@
+
+
+
+// FAQ section toggle
 function toggleAnswer(id) {
   // Get all answer elements
   var answers = document.querySelectorAll('.answer');
@@ -13,6 +17,8 @@ function toggleAnswer(id) {
   });
 }
 
+
+// Click to scroll down to an element
 function scrollToElement(elementId) {
     var element = document.getElementById(elementId);
     if (element) {
@@ -20,23 +26,52 @@ function scrollToElement(elementId) {
     }
 }
 
+
+// Navbar scroll behavior
 let lastScrollTop = 0;
-    const navbar = document.querySelector('.nav-bar');
+const navbar = document.querySelector('.nav-bar');
 
-    window.addEventListener('scroll', () => {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        if (scrollTop > lastScrollTop) {
-            // Scroll down
-            navbar.style.top = `-${navbar.offsetHeight}px`; // Hide navbar
-        } else {
-            // Scroll up
-            navbar.style.top = 0; // Show navbar
-        }
+    if (scrollTop > lastScrollTop) {
+        // Scroll down
+        navbar.style.top = `-${navbar.offsetHeight}px`; // Hide navbar
+    } else {
+        // Scroll up
+        navbar.style.top = 0; // Show navbar
+    }
 
-        lastScrollTop = scrollTop;
-    });
+    lastScrollTop = scrollTop;
+});
 
+
+// Pop-up Add Wallet window
+const addWalletBtnNavbar = document.getElementById('addWalletBtnNavbar');
+const addWalletBtnProfile = document.getElementById('addWalletBtnProfile');
+const popupContainer = document.getElementById('popupContainer');
+
+addWalletBtnNavbar.addEventListener('click', () => {
+    popupContainer.style.display = 'block';
+});
+
+addWalletBtnProfile.addEventListener('click', () => {
+    popupContainer.style.display = 'block';
+});
+
+function closePopup() {
+    popupContainer.style.display = 'none';
+}
+
+function saveWallet() {
+    const walletInput = document.getElementById('walletInput').value;
+    // Perform any action with the wallet input here
+    console.log('Wallet address:', walletInput);
+    closePopup();
+}
+
+
+// NFT Carousel assets
 const nftData = [
     {
         imgUrl: "https://lh3.googleusercontent.com/nsZk2m9zkO3-fakZRYaXpqVSAFMS3fewSlKS-GhTwTbNEnZVrtymCAc-tuciJrEitgXqA4sUTj6dNtgQ2lljIZOkp-nlbtWmlA",
@@ -211,3 +246,5 @@ renderNFTCards();
 
 // Add event listener for window resize to update the carousel dynamically
 window.addEventListener('resize', renderNFTCards);
+
+

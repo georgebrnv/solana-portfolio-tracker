@@ -2,11 +2,14 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 from user_profile.models import UserProfileImages
+from wallet.models import SolanaWallet
+
 
 # Create your models here.
 class UserAuth(AbstractUser):
     # AbstractUser class fields are predefined, add additional ones below.
     profile_image = models.OneToOneField(to=UserProfileImages, on_delete=models.CASCADE, null=True)
+    solana_wallet = models.OneToOneField(to=SolanaWallet, on_delete=models.CASCADE, null=True)
 
     def save(self, *args, **kwargs):
         if not self.profile_image:

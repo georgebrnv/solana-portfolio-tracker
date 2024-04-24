@@ -542,3 +542,46 @@
 .pl-1 {
     padding-left: 1rem !important;
 }
+
+/* Pop-up container styles */
+.popupContainer {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+/* Pop-up content styles */
+.popupContent {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+/* Close button styles */
+.closeBtn {
+    color: white !important;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    cursor: pointer;
+    color: #000;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

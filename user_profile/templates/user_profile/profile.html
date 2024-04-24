@@ -8,9 +8,18 @@
                 <div class="col-md-6 order-md-2">
                     <a class="profile-pic my-2">
                         <img src="{{ user.profile_image.image.url }}"
-                         alt="Profile Image" class="profile-img">
+                             alt="Profile Image" class="profile-img">
                     </a>
                 </div>
+
+                <!-- Flash respond messages -->
+                {% if messages %}
+                <ul class="messages pl-1">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
 
                 <div class="col-md-6 order-md-1">
                     <h4 class="profile-header-text mb-3 ">Profile Info</h4>
@@ -19,14 +28,16 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="profile-text" for="firstName">First name</label>
-                                <input name="first_name" type="text" class="form-control" id="firstName" placeholder="John" value="{{ user.first_name }}">
+                                <input name="first_name" type="text" class="form-control" id="firstName"
+                                       placeholder="John" value="{{ user.first_name }}">
                                 <div class="invalid-feedback">
                                     Valid first name is required.
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="profile-text" for="lastName">Last name</label>
-                                <input name="last_name" type="text" class="form-control" id="lastName" placeholder="Johnson" value="{{ user.Last_name }}">
+                                <input name="last_name" type="text" class="form-control" id="lastName"
+                                       placeholder="Johnson" value="{{ user.Last_name }}">
                                 <div class="invalid-feedback">
                                     Valid last name is required.
                                 </div>
@@ -36,13 +47,28 @@
                         <div class="mb-3">
                             <label class="profile-text" for="username">Username</label>
                             <div class="input-group">
-                                <input name="username" type="text" class="form-control" id="username" placeholder="your_nickname" value="{{ user.username }}">
+                                <input name="username" type="text" class="form-control" id="username"
+                                       placeholder="your_nickname" value="{{ user.username }}">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="profile-text" for="solana_wallet">Solana Wallet</label>
+                            <div class="input-group">
+                                {% if user.solana_wallet is None %}
+                                <a id="addWalletBtnProfile" class="col-auto btn btn-warning rounded me-2">Add Wallet</a>
+                                {% else %}
+                                <input name="solana_wallet" type="text" class="form-control" id="solana_wallet"
+                                       placeholder="your_solana_wallet"
+                                       value="{{ user.solana_wallet.solana_wallet_address }}">
+                                {% endif %}
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label class="profile-text" for="email">Email <span class="">(Optional)</span></label>
-                            <input name="email" type="email" class="form-control" id="email" placeholder="you@example.com" value="{{ user.email }}">
+                            <input name="email" type="email" class="form-control" id="email"
+                                   placeholder="you@example.com" value="{{ user.email }}">
                             <div class="invalid-feedback">
                                 Please enter a valid email address for shipping updates.
                             </div>
