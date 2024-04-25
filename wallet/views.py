@@ -12,6 +12,7 @@ URL = f'https://mainnet.helius-rpc.com/?api-key={HELIUS_KEY_ID}'
 headers = {
         'Content-Type': 'application/json',
     }
+UNVERIFIED_BLOCK_LIST = ['Amount', 'AMOUNT', 'Website', 'Verified', 'Time Left']
 
 def add_wallet(request):
     if request.method == 'POST':
@@ -46,11 +47,9 @@ def verified_nfts(request):
             'page': 1,
             'limit': 300,
             'creatorVerified': True,
-            'displayOptions': {
+            'options': {
                 'showUnverifiedCollections': False,
-                'showCollectionMetadata': True,
-                'showGrandTotal': False,
-                'showNativeBalance': False,
+                'showNativeBalance': True,
                 'showInscription': False,
                 'showZeroBalance': False,
             },
@@ -58,20 +57,34 @@ def verified_nfts(request):
     }
 
     response = requests.post(url=URL, headers=headers, json=body)
-    verified_nfts_data = response.json()['result']
+    nfts_data = response.json()['result']
 
     verified_nfts_list = []
 
-    for nft in verified_nfts_data['items']:
+    for nft in nfts_data['items']:
+        spam_collection = False
+        metadata = nft['content']['metadata']
 
         try:
-            nft_image_uri = nft['content']['links']['image']
-            nft_name = nft['content']['metadata']['name']
-            currency1 = { 'name': "SOL", 'price': 0.5 }
-            currency2 = { 'name': '$', 'price': 100 }
+            # Filter spam ntfs from received nfts data
+            for attribute in metadata['attributes']:
+                if attribute['trait_type'] in UNVERIFIED_BLOCK_LIST:
+                    spam_collection = True
+                    break
+                else:
+                    continue
 
-            verified_nfts_list.append({ 'imgUrl': nft_image_uri, 'title': nft_name, 'currency1': currency1, 'currency2': currency2 })
-        except:
+            # Store verified nfts data in the list
+            if not spam_collection:
+                nft_image_uri = nft['content']['links']['image']
+                nft_name = nft['content']['metadata']['name']
+                currency1 = {'name': "SOL", 'price': 0.5}
+                currency2 = {'name': '$', 'price': 100}
+
+                verified_nfts_list.append(
+                    {'imgUrl': nft_image_uri, 'title': nft_name, 'currency1': currency1, 'currency2': currency2})
+
+        except KeyError:
             continue
 
     return verified_nfts_list
