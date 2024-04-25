@@ -80,6 +80,8 @@ def verified_nfts(request):
                 nft_name = nft['content']['metadata']['name']
                 if nft_name == '':
                     nft_name = 'Unknown Collection'
+                elif len(nft_name) > 17:
+                    nft_name = nft_name[:17] + '...'
                 currency1 = {'name': "SOL", 'price': 0.5}
                 currency2 = {'name': '$', 'price': 100}
 

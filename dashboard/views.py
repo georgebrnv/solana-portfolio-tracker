@@ -31,7 +31,7 @@ def portfolio(request):
     verified_nfts_list = verified_nfts(request)
 
     return render(request, 'dashboard/portfolio.html', context={
-        'verified_nfts_list': verified_nfts_list[:15],
+        'verified_nfts_list': verified_nfts_list[15:30],
         'total_solana_price': total_solana_price,
         'account_balance': account_balance,
     })
