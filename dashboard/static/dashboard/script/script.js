@@ -181,6 +181,9 @@ function createNFTCard(nft) {
     const card = document.createElement('div');
     card.classList.add('card', 'nft-carousel-card');
 
+    const wrapper = document.createElement('div')
+    wrapper.classList.add('square-image')
+
     const img = document.createElement('img');
     img.src = nft.imgUrl;
     img.classList.add('card-img-top', 'carousel-nft-img');
@@ -203,7 +206,8 @@ function createNFTCard(nft) {
 
     currencies.append(currency1, currency2);
     cardBody.append(title, currencies);
-    card.append(img, cardBody);
+    card.append(wrapper, cardBody);
+    wrapper.append(img);
 
     return card;
 }

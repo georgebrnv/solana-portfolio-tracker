@@ -78,6 +78,8 @@ def verified_nfts(request):
             if not spam_collection:
                 nft_image_uri = nft['content']['links']['image']
                 nft_name = nft['content']['metadata']['name']
+                if nft_name == '':
+                    nft_name = 'Unknown Collection'
                 currency1 = {'name': "SOL", 'price': 0.5}
                 currency2 = {'name': '$', 'price': 100}
 
@@ -140,8 +142,6 @@ def fungible_token_balance(request):
         }
 
         token_sum_price += token_total_price
-
-    print(wallet_tokens)
 
     # SOL balance in USD
     total_solana_price = token_balance_data['nativeBalance']['total_price']
