@@ -16,14 +16,14 @@
             <div class="card h-100 py-2">
                 <div class="card-body">
                     <div class="row align-items-center">
-                        <div class="col mr-2">
+                        <div class="col">
                             <div class="portfolio-head-text mb-1">
                                 Net Worth
                             </div>
-                            <div class="h5 mb-0 text-success">${{ account_balance }}</div>
+                            <div class="h5 mb-2 text-white">${{ account_balance }}</div>
                         </div>
-                        <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <div class="h6 text-white">
+                            <span class="text-loss mr-2">-$00.00</span> -0.00%
                         </div>
                     </div>
                 </div>
@@ -35,14 +35,14 @@
             <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row align-items-center">
-                        <div class="col mr-2">
+                        <div class="col">
                             <div class="portfolio-head-text mb-1">
                                 Solana Balance
                             </div>
-                            <div class="h5 mb-0 text-success">${{ total_solana_price }}</div>
+                            <div class="h5 mb-2 text-white">${{ total_solana_price }}</div>
                         </div>
-                        <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <div class="h6 text-white">
+                            <span class="text-loss mr-2">-$00.00</span> -0.00%
                         </div>
                     </div>
                 </div>
@@ -54,16 +54,20 @@
             <div class="card h-100 py-2">
                 <div class="card-body">
                     <div class="row align-items-center">
-                        <div class="col mr-2">
+                        <div class="col">
                             <div class="portfolio-head-text mb-1">Biggest Position
                             </div>
-                            <div class="row align-items-center">
+                            <div class="h5 text-white">
+                                ${{ biggest_position_token_balance }} <span class="mx-3">{{ biggest_position_token_name }}</span>
+                            </div>
+                            <div class="row align-items-center mt-1">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 text-info">10%</div>
+                                    <div class="h5 mb-0 text-profit">{{ biggest_position_balance_percentage }}%</div>
                                 </div>
                                 <div class="col-md-5">
-                                    <div class="progress progress-sm mr-2">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 10%"
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar progress-bar-profit" role="progressbar"
+                                             style="width:{{ biggest_position_balance_percentage }}%"
                                              aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
@@ -130,10 +134,19 @@
         <div class="col-lg-5">
             <div class="card mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 text-white">Top 5 Holdings</h6>
+                    <h6 class="m-0 portfolio-head-text">TOP 5 HOLDINGS</h6>
                 </div>
-                <div class="card-body card-bottom">
+                <div class="card-body">
 
+                    {% for token, data in sorted_wallet_tokens %}
+                    <h4 class="small font-weight-bold text-white">
+                        {{ token }} <span class="ml-2 text-info">${{ data.total_price }} <span class="text-white float-end">{{ data.token_balance_percentage }}%</span></span>
+                    </h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: {{data.token_balance_percentage}}%" aria-valuenow="20"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -143,7 +156,7 @@
             <!-- CAROUSEL -->
             <div class="card mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 text-white">Your NFT assets</h6>
+                    <h6 class="m-0 portfolio-head-text">YOUR NFT ASSETS</h6>
                 </div>
                 <div class="card-body card-bottom">
 

@@ -124,8 +124,15 @@ def fungible_token_balance(request):
 
     # Tokens Info Dict
     wallet_tokens = {}
-    # Total price of all tokens BESIDES SOL
+    # Total wallet balance (excluding SOL)
     token_sum_price = 0
+    # Biggest position
+    biggest_position_token_name = ''
+    biggest_position_token_balance = 0
+    # SOL balance in USD
+    total_solana_price = token_balance_data['nativeBalance']['total_price']
+    # SOL price
+    solana_price = token_balance_data['nativeBalance']['price_per_sol']
 
     for token in token_balance_data['items']:
         token_info = token['token_info']
@@ -135,19 +142,37 @@ def fungible_token_balance(request):
         except KeyError:
             continue
 
+        # Total token price in USD
         token_total_price = token_info['price_info']['total_price']
+
+        if token_total_price > biggest_position_token_balance:
+            biggest_position_token_balance = token_total_price
+            biggest_position_token_name = token_symbol
+
+        # Amount of token in the wallet
         token_amount = token_info['price_info']['total_price'] / token_info['price_info']['price_per_token']
+        # Total wallet balance (excluding SOL)
+        token_sum_price += token_total_price
 
         wallet_tokens[token_symbol] = {
             'amount': round(token_amount, 4),
             'total_price': round(token_total_price, 2),
+            'token_balance_percentage': round(token_total_price / (total_solana_price + token_sum_price) * 100, 2),
         }
 
-        token_sum_price += token_total_price
+    # Add Solana to wallet tokens dict
+    wallet_tokens['SOL'] = {
+        'amount': round(total_solana_price / solana_price, 4),
+        'total_price': round(total_solana_price, 2),
+        'token_balance_percentage': round(total_solana_price / (total_solana_price + token_sum_price) * 100, 2),
+    }
 
-    # SOL balance in USD
-    total_solana_price = token_balance_data['nativeBalance']['total_price']
+    # Sort the dict according to the total_price in descending order
+    sorted_wallet_tokens = sorted(wallet_tokens.items(), key=lambda x: x[1]['total_price'], reverse=True)
+
     # Account Balance in USD
     account_balance = total_solana_price + token_sum_price
+    # Biggest position percentage
+    biggest_position_balance_percentage = biggest_position_token_balance / account_balance * 100
 
-    return [total_solana_price, account_balance]
+    return [total_solana_price, account_balance, biggest_position_token_name, biggest_position_token_balance, biggest_position_balance_percentage, sorted_wallet_tokens]

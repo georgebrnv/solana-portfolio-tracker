@@ -320,9 +320,10 @@
 }
 
 .portfolio-head-text {
-    color: white;
+    color: #D8D8D8;
     text-weight: 500;
     text-transform: uppercase;
+    padding-bottom: 0.5rem;
 }
 
 .top-holdings-text {
@@ -599,4 +600,24 @@
     top: 0;
     height: 100%;
     object-fit: cover;
+}
+
+.progress-bar-profit {
+    --bs-progress-bar-bg: #04CE00 !important;
+}
+
+.text-profit {
+    color: #04CE00 !important;
+}
+
+.text-loss {
+    color: #DE0000 !important;
+}
+
+.mr-2 {
+    margin-right: 1rem;
+}
+
+.ml-1 {
+    margin-left: 0.5rem;
 }

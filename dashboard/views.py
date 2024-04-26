@@ -26,13 +26,21 @@ def portfolio(request):
     # Solana and Total Account Balances in USD
     total_solana_price = round(wallet_data[0], 2)
     account_balance = round(wallet_data[1], 2)
+    biggest_position_token_name = wallet_data[2]
+    biggest_position_token_balance = round(wallet_data[3], 2)
+    biggest_position_balance_percentage = round(wallet_data[4], 2)
+    sorted_wallet_tokens = wallet_data[5]
 
     # Verified nfts
     verified_nfts_list = verified_nfts(request)
 
     return render(request, 'dashboard/portfolio.html', context={
-        'verified_nfts_list': verified_nfts_list[15:30],
+        'verified_nfts_list': verified_nfts_list[:15],
         'total_solana_price': total_solana_price,
         'account_balance': account_balance,
+        'biggest_position_token_name': biggest_position_token_name,
+        'biggest_position_token_balance': biggest_position_token_balance,
+        'biggest_position_balance_percentage': biggest_position_balance_percentage,
+        'sorted_wallet_tokens': sorted_wallet_tokens[:5],
     })
 
