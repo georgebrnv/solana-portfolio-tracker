@@ -196,15 +196,15 @@ function createNFTCard(nft) {
     title.textContent = nft.title;
 
     const currencies = document.createElement('div');
-    currencies.classList.add('d-flex', 'justify-content-between');
+    currencies.classList.add('justify-content-between');
 
-    const currency1 = document.createElement('div');
-    currency1.innerHTML = `<span class="badge bg-success text-white">${nft.currency1.name}</span><span class="price">${nft.currency1.price}</span>`;
+    const sol_currency = document.createElement('div');
+    sol_currency.innerHTML = `<span class="badge bg-success text-white mr-1">${nft.sol_currency.name}</span><span class="price">${nft.sol_currency.price}</span>`;
 
-    const currency2 = document.createElement('div');
-    currency2.innerHTML = `<span class="badge bg-primary text-white">${nft.currency2.name}</span><span class="price">${nft.currency2.price}</span>`;
+    const usdc_currency = document.createElement('div');
+    usdc_currency.innerHTML = `<span class="badge bg-primary text-white mr-1">${nft.usdc_currency.name}</span><span class="price">${nft.usdc_currency.price}</span>`;
 
-    currencies.append(currency1, currency2);
+    currencies.append(sol_currency, usdc_currency);
     cardBody.append(title, currencies);
     card.append(wrapper, cardBody);
     wrapper.append(img);

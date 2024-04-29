@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from wallet.views import fungible_token_balance, verified_nfts
+from wallet.views import fungible_token_balance, nft_assets
 
 FAQ = {
     "What is Solana?": "Solana is a high-performance blockchain platform designed for decentralized applications and crypto projects.",
@@ -32,10 +32,10 @@ def portfolio(request):
     sorted_wallet_tokens = wallet_data[5]
 
     # Verified nfts
-    verified_nfts_list = verified_nfts(request)
+    nfts_list = nft_assets(request)
 
     return render(request, 'dashboard/portfolio.html', context={
-        'verified_nfts_list': verified_nfts_list[:15],
+        'nfts_list': nfts_list[:15],
         'total_solana_price': total_solana_price,
         'account_balance': account_balance,
         'biggest_position_token_name': biggest_position_token_name,

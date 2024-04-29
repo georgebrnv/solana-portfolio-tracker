@@ -4,15 +4,22 @@ from django.contrib import messages
 
 import requests
 
-from solana_portfolio_tracker.settings import HELIUS_KEY_ID
+from solana_portfolio_tracker.settings import HELIUS_KEY_ID, SimpleHash_API_KEY
 
 from .models import SolanaWallet
 
-URL = f'https://mainnet.helius-rpc.com/?api-key={HELIUS_KEY_ID}'
-headers = {
+# Helius Credentials
+HELIUS_URL = f'https://mainnet.helius-rpc.com/?api-key={HELIUS_KEY_ID}'
+helius_headers = {
         'Content-Type': 'application/json',
     }
-UNVERIFIED_BLOCK_LIST = ['Amount', 'AMOUNT', 'Website', 'Verified', 'Time Left']
+
+# SimpleHash credentials
+simplehash_headers = {
+    "accept": "application/json",
+    "X-API-KEY": SimpleHash_API_KEY,
+}
+
 
 def add_wallet(request):
     if request.method == 'POST':
@@ -35,63 +42,46 @@ def add_wallet(request):
 
 
 
-def verified_nfts(request):
+def nft_assets(request):
     user = request.user
 
+    # Request params (GET request)
+    request_objects_limit = 15
+    order_by = 'floor_price__desc'
+    chains = 'solana'
+
+    simplehash_url = f"https://api.simplehash.com/api/v0/nfts/owners_v2?chains={chains}&order_by={order_by}&limit={request_objects_limit}"
+
     body = {
-        'jsonrpc': '2.0',
-        'id': 'my-id',
-        'method': 'searchAssets',
-        'params': {
-            'ownerAddress': user.solana_wallet.solana_wallet_address,
-            'page': 1,
-            'limit': 300,
-            'creatorVerified': True,
-            'options': {
-                'showUnverifiedCollections': False,
-                'showNativeBalance': True,
-                'showInscription': False,
-                'showZeroBalance': False,
-            },
-        },
+        'wallet_addresses': [user.solana_wallet.solana_wallet_address]
     }
 
-    response = requests.post(url=URL, headers=headers, json=body)
-    nfts_data = response.json()['result']
+    response = requests.post(url=simplehash_url, headers=simplehash_headers, json=body)
+    nfts_data = response.json()['nfts']
 
-    verified_nfts_list = []
+    nfts_list = []
 
-    for nft in nfts_data['items']:
-        spam_collection = False
-        metadata = nft['content']['metadata']
+    for nft in nfts_data:
 
         try:
-            # Filter spam ntfs from received nfts data
-            for attribute in metadata['attributes']:
-                if attribute['trait_type'] in UNVERIFIED_BLOCK_LIST:
-                    spam_collection = True
-                    break
-                else:
-                    continue
-
-            # Store verified nfts data in the list
-            if not spam_collection:
-                nft_image_uri = nft['content']['links']['image']
-                nft_name = nft['content']['metadata']['name']
-                if nft_name == '':
-                    nft_name = 'Unknown Collection'
-                elif len(nft_name) > 17:
-                    nft_name = nft_name[:17] + '...'
-                currency1 = {'name': "SOL", 'price': 0.5}
-                currency2 = {'name': '$', 'price': 100}
-
-                verified_nfts_list.append(
-                    {'imgUrl': nft_image_uri, 'title': nft_name, 'currency1': currency1, 'currency2': currency2})
-
+            nft_image_uri = nft['image_url']
+            nft_name = nft['name']
+            if len(nft_name) > 17:
+                nft_name = nft_name[:17] + '...'
+            nft_price_sol = 0
+            nft_price_usdc = 0
+            for marketplace in nft['collection']['floor_prices']:
+                if marketplace['marketplace_name'] == 'Tensor':
+                    nft_price_sol = round(marketplace['value'] / 1000000000, 2)
+                    nft_price_usdc = marketplace['value_usd_cents'] / 100
+            sol_currency = {'name': "SOL", 'price': nft_price_sol}
+            usdc_currency = {'name': '$', 'price': nft_price_usdc}
+            nfts_list.append(
+                {'imgUrl': nft_image_uri, 'title': nft_name, 'sol_currency': sol_currency, 'usdc_currency': usdc_currency})
         except KeyError:
             continue
 
-    return verified_nfts_list
+    return nfts_list
 
 
 # Get total account balance in SOL and USD
@@ -119,7 +109,7 @@ def fungible_token_balance(request):
         },
     }
 
-    response = requests.post(url=URL, headers=headers, json=body)
+    response = requests.post(url=HELIUS_URL, headers=helius_headers, json=body)
     token_balance_data = response.json()['result']
 
     # Tokens Info Dict

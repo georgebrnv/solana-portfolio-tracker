@@ -36,6 +36,8 @@ ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1"]
 
 # Helius credentials
 HELIUS_KEY_ID = os.getenv('HELIUS_KEY_ID')
+# SimpleHash credentials
+SimpleHash_API_KEY = os.getenv('SimpleHash_API_KEY')
 
 
 # Application definition
