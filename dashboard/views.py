@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.db import connection
+from datetime import datetime
 
 from wallet.views import fungible_token_balance, nft_assets
 
@@ -47,3 +49,76 @@ def portfolio(request):
         'biggest_position_balance_percentage': biggest_position_balance_percentage,
         'sorted_wallet_tokens': sorted_wallet_tokens[:5],
     })
+
+def balance_chart(request):
+    user = request.user
+
+    wallet_balance_data_query = f"""
+    SELECT
+        timestamp_datetime AS timestamp_datetime,
+        wallet_balance AS wallet_balance,
+        solana_wallet_balance AS solana_wallet_balance
+    FROM snapshot_walletsnapshot
+    WHERE user_id = {user.id}
+    """
+
+    wallet_balance_data = execute_sql_query(wallet_balance_data_query)
+
+    user_snapshot_data = {
+        "day_1": [],
+        "week_1": [],
+        "month_1": [],
+        "month_3": [],
+        "month_6": [],
+        "year_1": []
+    }
+
+    last_day_snapshot_date = None
+    last_week_snapshot_date = None
+    last_month_snapshot_date = None
+    last_half_year_snapshot_date = None
+    last_year_snapshot_date = None
+
+    for row in wallet_balance_data:
+        timestamp_datetime = row['timestamp_datetime']
+        wallet_balance = row['wallet_balance']
+        solana_wallet_balance = row['solana_wallet_balance']
+
+        daily_snapshot = {"timestamp_datetime": timestamp_datetime.isoformat(), "wallet_balance": wallet_balance, "solana_wallet_balance": solana_wallet_balance}
+        snapshot = {"day": timestamp_datetime.strftime("%m/%d/%Y"), "wallet_balance": wallet_balance, "solana_wallet_balance": solana_wallet_balance}
+
+        days_diff = (datetime.utcnow() - timestamp_datetime).days
+
+        if days_diff == 0:
+            user_snapshot_data['day_1'].append(daily_snapshot)
+        if timestamp_datetime.date() != last_day_snapshot_date and days_diff <= 7:
+            user_snapshot_data['week_1'].append(snapshot)
+            last_day_snapshot_date = timestamp_datetime.date()
+        if timestamp_datetime.date() != last_week_snapshot_date and days_diff <= 30:
+            user_snapshot_data['month_1'].append(snapshot)
+            last_week_snapshot_date = timestamp_datetime.date()
+        if timestamp_datetime.date() != last_month_snapshot_date and days_diff <= 90:
+            user_snapshot_data['month_3'].append(snapshot)
+            last_month_snapshot_date = timestamp_datetime.date()
+        if timestamp_datetime.date() != last_half_year_snapshot_date and days_diff <= 180:
+            user_snapshot_data['month_6'].append(snapshot)
+            last_half_year_snapshot_date = timestamp_datetime.date()
+        if timestamp_datetime.date() != last_year_snapshot_date and days_diff <= 365:
+            user_snapshot_data['year_1'].append(snapshot)
+            last_year_snapshot_date = timestamp_datetime.date()
+
+
+    print(user_snapshot_data)
+    return redirect('portfolio')
+
+def execute_sql_query(query):
+    with connection.cursor() as cursor:
+        cursor.execute(query)
+        # Store column names (col[0]) in the 'columns' variable
+        columns = [col[0] for col in cursor.description]
+        # Fetch all the rows from executed query
+        rows = cursor.fetchall()
+
+        # List comprehension iterates through each row and creates a list of
+        # dictionaries and pair column name with the corresponding value (key: value)
+        return [dict(zip(columns, row)) for row in rows]
