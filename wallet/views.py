@@ -1,5 +1,4 @@
-from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.contrib import messages
 
 import requests
@@ -61,6 +60,9 @@ def nft_assets(request):
 
     nfts_list = []
 
+    # Total NFTs value in USDC
+    total_nfts_value = 0
+
     for nft in nfts_data:
 
         try:
@@ -78,10 +80,11 @@ def nft_assets(request):
             usdc_currency = {'name': '$', 'price': nft_price_usdc}
             nfts_list.append(
                 {'imgUrl': nft_image_uri, 'title': nft_name, 'sol_currency': sol_currency, 'usdc_currency': usdc_currency})
+            total_nfts_value += nft_price_usdc
         except KeyError:
             continue
 
-    return nfts_list
+    return nfts_list, total_nfts_value
 
 
 # Get total account balance in SOL and USD

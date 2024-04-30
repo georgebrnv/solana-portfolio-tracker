@@ -41,7 +41,6 @@ SimpleHash_API_KEY = os.getenv('SimpleHash_API_KEY')
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -53,6 +52,8 @@ INSTALLED_APPS = [
     'authentication',
     'user_profile',
     'wallet',
+    'snapshot',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -90,7 +91,6 @@ WSGI_APPLICATION = 'solana_portfolio_tracker.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -101,7 +101,6 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -120,7 +119,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -132,28 +130,29 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-
 STATIC_URL = 'static/'
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
 # Configure Django to use the local file system for storing media files.
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Specify a custom user model
-
 AUTH_USER_MODEL = 'authentication.UserAuth'
 
 
 # Specify Login URL
-
 LOGIN_URL = 'login'
+
+
+# Cronjobs
+CRONJOBS = [
+    ('* * * * *', 'django.core.management.call_command', ['wallet-balance-snapshot']),
+]
