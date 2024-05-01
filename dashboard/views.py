@@ -37,6 +37,9 @@ def portfolio(request):
     biggest_position_balance_percentage = round(wallet_data[4], 2)
     sorted_wallet_tokens = wallet_data[5]
 
+    # Wallet Snapshots Data
+    wallet_snapshots_data = balance_chart(request)
+
     # Total account balance (fungible + nfts)
     total_wallet_balance = round(fungible_account_balance +  total_nfts_value, 2)
 
@@ -48,6 +51,7 @@ def portfolio(request):
         'biggest_position_token_balance': biggest_position_token_balance,
         'biggest_position_balance_percentage': biggest_position_balance_percentage,
         'sorted_wallet_tokens': sorted_wallet_tokens[:5],
+        'wallet_snapshots_data': wallet_snapshots_data,
     })
 
 def balance_chart(request):
@@ -107,9 +111,7 @@ def balance_chart(request):
             user_snapshot_data['year_1'].append(snapshot)
             last_year_snapshot_date = timestamp_datetime.date()
 
-
-    print(user_snapshot_data)
-    return redirect('portfolio')
+    return user_snapshot_data
 
 def execute_sql_query(query):
     with connection.cursor() as cursor:

@@ -86,13 +86,25 @@
     <div class="row">
 
         <!-- Chart -->
+        <script>
+            const walletSnapshotsData = {{ wallet_snapshots_data|safe }};
+        </script>
         <div class="col-xl-8">
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="chart-area">
-                        <canvas id="walletBalanceChart" width="auto" height="320"
-                                style="display: flex; width: auto; height: 320px;"
-                                class="chartjs-render-monitor"></canvas>
+                        <canvas id="walletBalanceChart" width="auto" height="100"
+                                style="display: flex; width: auto; height: 320px;"></canvas>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center">
+                            <button class="chart-btn btn btn-sm btn-outline-secondary mx-1" id="dayBtn">Day</button>
+                            <button class="chart-btn btn btn-sm btn-outline-secondary mx-1" id="weekBtn">Week</button>
+                            <button class="chart-btn btn btn-sm btn-outline-secondary mx-1" id="monthBtn">Month</button>
+                            <button class="chart-btn btn btn-sm btn-outline-secondary mx-1" id="month3Btn">3 Months</button>
+                            <button class="chart-btn btn btn-sm btn-outline-secondary mx-1" id="month6Btn">6 Months</button>
+                            <button class="chart-btn btn btn-sm btn-outline-secondary mx-1" id="yearBtn">Year</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -133,10 +145,12 @@
 
                     {% for token, data in sorted_wallet_tokens %}
                     <h4 class="small font-weight-bold text-white">
-                        {{ token }} <span class="ml-2 text-info">${{ data.total_price }} <span class="text-white float-end">{{ data.token_balance_percentage }}%</span></span>
+                        {{ token }} <span class="ml-2 text-info">${{ data.total_price }} <span
+                            class="text-white float-end">{{ data.token_balance_percentage }}%</span></span>
                     </h4>
                     <div class="progress mb-4">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: {{data.token_balance_percentage}}%" aria-valuenow="20"
+                        <div class="progress-bar bg-info" role="progressbar"
+                             style="width: {{data.token_balance_percentage}}%" aria-valuenow="20"
                              aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     {% endfor %}
