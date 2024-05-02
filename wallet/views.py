@@ -126,6 +126,8 @@ def fungible_token_balance(request):
     total_solana_price = token_balance_data['nativeBalance']['total_price']
     # SOL price
     solana_price = token_balance_data['nativeBalance']['price_per_sol']
+    # NFTs account balance
+    total_nfts_value = nft_assets(request)[1]
 
     for token in token_balance_data['items']:
         token_info = token['token_info']
@@ -150,22 +152,22 @@ def fungible_token_balance(request):
         wallet_tokens[token_symbol] = {
             'amount': round(token_amount, 4),
             'total_price': round(token_total_price, 2),
-            'token_balance_percentage': round(token_total_price / (total_solana_price + token_sum_price) * 100, 2),
+            'token_balance_percentage': round(token_total_price / (total_solana_price + token_sum_price + total_nfts_value) * 100, 2),
         }
 
     # Add Solana to wallet tokens dict
     wallet_tokens['SOL'] = {
         'amount': round(total_solana_price / solana_price, 4),
         'total_price': round(total_solana_price, 2),
-        'token_balance_percentage': round(total_solana_price / (total_solana_price + token_sum_price) * 100, 2),
+        'token_balance_percentage': round(total_solana_price / (total_solana_price + token_sum_price + total_nfts_value) * 100, 2),
     }
 
     # Sort the dict according to the total_price in descending order
     sorted_wallet_tokens = sorted(wallet_tokens.items(), key=lambda x: x[1]['total_price'], reverse=True)
 
     # Account Balance in USD
-    account_balance = total_solana_price + token_sum_price
+    fungible_account_balance = total_solana_price + token_sum_price
     # Biggest position percentage
-    biggest_position_balance_percentage = biggest_position_token_balance / account_balance * 100
+    biggest_position_balance_percentage = biggest_position_token_balance / (fungible_account_balance + total_nfts_value) * 100
 
-    return [total_solana_price, account_balance, biggest_position_token_name, biggest_position_token_balance, biggest_position_balance_percentage, sorted_wallet_tokens]
+    return [total_solana_price, fungible_account_balance, biggest_position_token_name, biggest_position_token_balance, biggest_position_balance_percentage, sorted_wallet_tokens, total_nfts_value]

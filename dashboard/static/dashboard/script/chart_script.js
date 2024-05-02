@@ -3,13 +3,70 @@ let chart;
 function initializeChart(data) {
     const canvas = document.getElementById('walletBalanceChart');
 
+    // Wallet balance in USDC
+    const firstBalance = data[0].wallet_balance;
+    const lastBalance = data[data.length - 1].wallet_balance;
+
+    // Balance change in USDC
+    const balanceDifference = (lastBalance - firstBalance).toFixed(2);
+    const balanceDifferenceElement = document.getElementById('balance_difference');
+
+     // USDC balance change in percentage
+    const percentageDifference = (((lastBalance - firstBalance) / firstBalance) * 100).toFixed(2);
+    const percentageDifferenceElement = document.getElementById('percentage_difference');
+    percentageDifferenceElement.innerHTML = percentageDifference + '%';
+
+    // Wallet balance in SOL
+    const solanaFirstBalance = data[0].solana_wallet_balance;
+    const solanaLastBalance = data[data.length - 1].solana_wallet_balance;
+
+    // Balance change in SOL
+    const solanaBalanceDifference = (solanaLastBalance - solanaFirstBalance).toFixed(2);
+    const solanaBalanceDifferenceElement = document.getElementById('solana_balance_difference');
+
+    // SOL balance change in percentage
+    const solanaPercentageDifference = (((solanaLastBalance - solanaFirstBalance) / solanaFirstBalance) * 100).toFixed(2);
+    const solanaPercentageDifferenceElement = document.getElementById('solana_percentage_difference');
+    solanaPercentageDifferenceElement.innerHTML = solanaPercentageDifference + '%';
+
+    if (solanaPercentageDifference >= 0) {
+        solanaBalanceDifferenceElement.innerHTML = '$' + solanaBalanceDifference;
+        solanaPercentageDifferenceElement.classList.add('positive');
+        solanaPercentageDifferenceElement.classList.remove('negative');
+        solanaBalanceDifferenceElement.classList.add('positive');
+        solanaBalanceDifferenceElement.classList.remove('negative');
+    } else {
+        solanaBalanceDifferenceElement.innerHTML = '-$' + Math.abs(solanaBalanceDifference);
+        solanaPercentageDifferenceElement.classList.add('negative');
+        solanaPercentageDifferenceElement.classList.remove('positive');
+        solanaBalanceDifferenceElement.classList.add('negative');
+        solanaBalanceDifferenceElement.classList.remove('positive');
+    }
+
+    if (percentageDifference >= 0) {
+        balanceDifferenceElement.innerHTML = '$' + balanceDifference;
+
+        percentageDifferenceElement.classList.add('positive');
+        percentageDifferenceElement.classList.remove('negative');
+        balanceDifferenceElement.classList.add('positive');
+        balanceDifferenceElement.classList.remove('negative');
+    } else {
+        balanceDifferenceElement.innerHTML = '-$' + Math.abs(balanceDifference);
+
+        percentageDifferenceElement.classList.add('negative');
+        percentageDifferenceElement.classList.remove('positive');
+        balanceDifferenceElement.classList.add('negative');
+        balanceDifferenceElement.classList.remove('positive');
+    }
+
+
     const labels = data.map(snapshot => snapshot.timestamp_datetime || snapshot.day);
     const datasets = [{
         label: '',
         data: data.map(snapshot => snapshot.wallet_balance),
         fill: true,
-        borderColor: 'green',
-        backgroundColor: createGradient(canvas, ['rgba(4, 255, 0, 1)', 'rgba(4, 255, 0, 0)']),
+        borderColor: percentageDifference >= 0 ? 'green' : 'red',
+        backgroundColor: createGradient(canvas, percentageDifference >= 0 ? ['rgba(4, 255, 0, 1)', 'rgba(4, 255, 0, 0)'] : ['rgba(231, 0, 0, 1)', 'rgba(231, 0, 0, 0)']),
         tension: 0.1
     }];
 
@@ -20,13 +77,13 @@ function initializeChart(data) {
             datasets: datasets
         },
         options: {
-            tooltip: {
-                displayColors: false
-            },
             plugins: {
                 legend: {
                     display: false
-                }
+                },
+                tooltip: {
+                    intersect: false,
+                },
             },
             animation: {
                 duration: 700,

@@ -21,10 +21,10 @@
                             <div class="portfolio-head-text mb-1">
                                 Net Worth
                             </div>
-                            <div class="h5 mb-2 text-white">${{ total_wallet_balance }}</div>
+                            <div class="h4 mb-2 text-white">${{ total_wallet_balance }}</div>
                         </div>
-                        <div class="h6 text-white">
-                            <span class="text-loss mr-2">-$00.00</span> -0.00%
+                        <div class="h5 text-white">
+                            <span id="balance_difference" class="mr-2">$00.00</span> <span id="percentage_difference">0.00%</span>
                         </div>
                     </div>
                 </div>
@@ -40,10 +40,10 @@
                             <div class="portfolio-head-text mb-1">
                                 Solana Balance
                             </div>
-                            <div class="h5 mb-2 text-white">${{ total_solana_price }}</div>
+                            <div class="h4 mb-2 text-white">${{ total_solana_price }}</div>
                         </div>
-                        <div class="h6 text-white">
-                            <span class="text-loss mr-2">-$00.00</span> -0.00%
+                        <div class="h5 text-white">
+                            <span id="solana_balance_difference" class="mr-2">$00.00</span> <span id="solana_percentage_difference">0.00%</span>
                         </div>
                     </div>
                 </div>
@@ -139,7 +139,7 @@
         <div class="col-lg-5">
             <div class="card mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 portfolio-head-text">TOP 5 HOLDINGS</h6>
+                    <h6 class="m-0 portfolio-head-text">TOP 5 TOKEN HOLDINGS</h6>
                 </div>
                 <div class="card-body">
 

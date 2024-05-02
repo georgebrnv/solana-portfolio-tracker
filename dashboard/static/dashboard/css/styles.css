@@ -610,10 +610,6 @@
     color: #04CE00 !important;
 }
 
-.text-loss {
-    color: #DE0000 !important;
-}
-
 .mr-1 {
     margin-right: 0.5rem;
 }
@@ -628,4 +624,12 @@
 
 .bg-solana {
     background-color: #7F00C7 !important;
+}
+
+.positive {
+    color: #00df00;
+}
+
+.negative {
+    color: red;
 }

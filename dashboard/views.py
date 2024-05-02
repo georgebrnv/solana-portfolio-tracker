@@ -30,7 +30,7 @@ def portfolio(request):
     # Nfts list
     nfts_list = nft_assets(request)[0]
     # NFTs account balance
-    total_nfts_value = nft_assets(request)[1]
+    total_nfts_value = wallet_data[6]
     # Biggest fungible token position
     biggest_position_token_name = wallet_data[2]
     biggest_position_token_balance = round(wallet_data[3], 2)
@@ -88,7 +88,7 @@ def balance_chart(request):
         wallet_balance = row['wallet_balance']
         solana_wallet_balance = row['solana_wallet_balance']
 
-        daily_snapshot = {"timestamp_datetime": timestamp_datetime.isoformat(), "wallet_balance": wallet_balance, "solana_wallet_balance": solana_wallet_balance}
+        daily_snapshot = {"timestamp_datetime": timestamp_datetime.strftime("%m/%d/%Y %H:%M"), "wallet_balance": wallet_balance, "solana_wallet_balance": solana_wallet_balance}
         snapshot = {"day": timestamp_datetime.strftime("%m/%d/%Y"), "wallet_balance": wallet_balance, "solana_wallet_balance": solana_wallet_balance}
 
         days_diff = (datetime.utcnow() - timestamp_datetime).days
