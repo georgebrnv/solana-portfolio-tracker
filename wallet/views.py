@@ -118,7 +118,7 @@ def fungible_token_balance(request):
     # Tokens Info Dict
     wallet_tokens = {}
     # Total wallet balance (excluding SOL)
-    token_sum_price = 0
+    token_sum_price = fungible_tokens_total_balance(token_balance_data)
     # Biggest position
     biggest_position_token_name = ''
     biggest_position_token_balance = 0
@@ -146,20 +146,19 @@ def fungible_token_balance(request):
 
         # Amount of token in the wallet
         token_amount = token_info['price_info']['total_price'] / token_info['price_info']['price_per_token']
-        # Total wallet balance (excluding SOL)
-        token_sum_price += token_total_price
+
 
         wallet_tokens[token_symbol] = {
             'amount': round(token_amount, 4),
             'total_price': round(token_total_price, 2),
-            'token_balance_percentage': round(token_total_price / (total_solana_price + token_sum_price + total_nfts_value) * 100, 2),
+            'token_balance_percentage': round(token_total_price / (total_solana_price + token_sum_price) * 100, 2),
         }
 
     # Add Solana to wallet tokens dict
     wallet_tokens['SOL'] = {
         'amount': round(total_solana_price / solana_price, 4),
         'total_price': round(total_solana_price, 2),
-        'token_balance_percentage': round(total_solana_price / (total_solana_price + token_sum_price + total_nfts_value) * 100, 2),
+        'token_balance_percentage': round(total_solana_price / (total_solana_price + token_sum_price) * 100, 2),
     }
 
     # Sort the dict according to the total_price in descending order
@@ -171,3 +170,13 @@ def fungible_token_balance(request):
     biggest_position_balance_percentage = biggest_position_token_balance / (fungible_account_balance + total_nfts_value) * 100
 
     return [total_solana_price, fungible_account_balance, biggest_position_token_name, biggest_position_token_balance, biggest_position_balance_percentage, sorted_wallet_tokens, total_nfts_value]
+
+def fungible_tokens_total_balance(data):
+    total_wallet_balance = 0
+    for token in data['items']:
+         try:
+             token_total_price = token['token_info']['price_info']['total_price']
+             total_wallet_balance += token_total_price
+         except KeyError:
+             continue
+    return total_wallet_balance

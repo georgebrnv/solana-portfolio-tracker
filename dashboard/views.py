@@ -52,6 +52,7 @@ def portfolio(request):
         'biggest_position_balance_percentage': biggest_position_balance_percentage,
         'sorted_wallet_tokens': sorted_wallet_tokens[:5],
         'wallet_snapshots_data': wallet_snapshots_data,
+        'fungible_account_balance': fungible_account_balance,
     })
 
 def balance_chart(request):
