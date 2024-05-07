@@ -40,7 +40,7 @@ def connect_wallet(request):
                 # Create first wallet balance snapshot
                 first_snapshot(user)
                 messages.success(request, f'New wallet ({wallet}) has been successfully added to your profile.')
-                return JsonResponse({'message': 'Success'}, status=200)
+                return JsonResponse({'message': 'Success'}, status=201)
 
             solana_wallet = SolanaWallet.objects.create(solana_wallet_address=wallet)
             user.solana_wallet = solana_wallet
@@ -48,7 +48,7 @@ def connect_wallet(request):
             # Create first wallet balance snapshot
             first_snapshot(user)
             messages.success(request, f'Congratulations! Your wallet ({wallet}) has been added to your profile!')
-            return JsonResponse({'message': 'Wallet has been added to account.'}, status=200)
+            return JsonResponse({'message': 'Wallet has been added to account.'}, status=201)
         except KeyError:
             messages.error(request, 'Error occurred. Try connecting your wallet again.')
             return JsonResponse({'message': 'Failed to connect the wallet.'}, status=400)

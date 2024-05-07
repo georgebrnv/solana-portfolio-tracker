@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         try {
             // Connect to Phantom wallet
             const wallet = await window.solana.connect();
-            console.log('Connected to Phantom wallet:', wallet.publicKey.toString());
+            console.log('Phantom wallet has been connected:', wallet.publicKey.toString());
 
             // Store wallet connection information in local storage
             localStorage.setItem('walletConnected', 'true');
@@ -97,9 +97,11 @@ document.addEventListener('DOMContentLoaded', async function() {
                 "publicKey": publicKey,
             })
         });
-            if (response.ok) {
-                console.log('Wallet information sent successfully.');
+            if (response.status === 201) {
+                console.log('Wallet has been successfully added to profile.');
                 window.location.href = '/profile';
+            } else if (response.status === 200) {
+                console.log('Wallet has been connected.');
             } else {
                 console.error('Failed to send wallet information.');
             }

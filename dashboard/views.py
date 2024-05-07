@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.db import connection
 from datetime import datetime
+from django.contrib import messages
 
 from wallet.views import fungible_token_balance, nft_assets
 
@@ -20,7 +21,10 @@ def index(request):
 
 
 def portfolio(request):
-
+    user = request.user
+    if user.solana_wallet is None:
+        messages.error(request, 'You need to connect your wallet first to see Portfolio page.')
+        return redirect('profile')
     # Fungible tokens data request
     wallet_data = fungible_token_balance(request)
     # Solana Balances in USDC
