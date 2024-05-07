@@ -633,3 +633,23 @@
 .negative {
     color: red;
 }
+
+.top-5-hold {
+    height: 93% !important;
+}
+
+.your-nft-assets {
+    height: 93% !important;
+}
+
+.caution {
+    color: red !important;
+}
+
+.caution-secondary {
+    font-size: 1.3rem;
+    font-weight: 200;
+    color: #DFDFDF !important;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}

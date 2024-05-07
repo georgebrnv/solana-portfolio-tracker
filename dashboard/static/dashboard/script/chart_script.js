@@ -60,6 +60,7 @@ function initializeChart(data) {
     }
 
 
+
     const labels = data.map(snapshot => snapshot.timestamp_datetime || snapshot.day);
     const datasets = [{
         label: '',

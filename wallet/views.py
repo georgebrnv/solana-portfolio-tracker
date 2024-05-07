@@ -1,11 +1,13 @@
-from django.shortcuts import redirect
 from django.contrib import messages
+from django.http import JsonResponse
 
-import requests
+import requests, json
 
 from solana_portfolio_tracker.settings import HELIUS_KEY_ID, SimpleHash_API_KEY
 
 from .models import SolanaWallet
+from snapshot.models import WalletSnapshot
+from snapshot.views import snapshot
 
 # Helius Credentials
 HELIUS_URL = f'https://mainnet.helius-rpc.com/?api-key={HELIUS_KEY_ID}'
@@ -20,26 +22,38 @@ simplehash_headers = {
 }
 
 
-def add_wallet(request):
+def connect_wallet(request):
+    user = request.user
+
     if request.method == 'POST':
+        response = json.loads(request.body.decode('utf-8'))
 
-        user = request.user
-        wallet = request.POST['solana_wallet']
+        try:
+            wallet = response['publicKey']
 
-        if user.solana_wallet is not None:
-            messages.error(request, 'You have already added Solana Wallet Address. Change it in your Profile Settings instead.')
-            return redirect('profile')
+            if user.solana_wallet is not None:
+                if user.solana_wallet.solana_wallet_address == wallet:
+                    messages.success(request, f'Wallet ({wallet}) is connected.')
+                    return JsonResponse({'message': 'Wallet is connected.'}, status=200)
+                user.solana_wallet.solana_wallet_address = wallet
+                user.solana_wallet.save()
+                # Create first wallet balance snapshot
+                first_snapshot(user)
+                messages.success(request, f'New wallet ({wallet}) has been successfully added to your profile.')
+                return JsonResponse({'message': 'Success'}, status=200)
 
-        solana_wallet = SolanaWallet.objects.create(solana_wallet_address=wallet)
-        user.solana_wallet = solana_wallet
-        user.save()
+            solana_wallet = SolanaWallet.objects.create(solana_wallet_address=wallet)
+            user.solana_wallet = solana_wallet
+            user.save()
+            # Create first wallet balance snapshot
+            first_snapshot(user)
+            messages.success(request, f'Congratulations! Your wallet ({wallet}) has been added to your profile!')
+            return JsonResponse({'message': 'Wallet has been added to account.'}, status=200)
+        except KeyError:
+            messages.error(request, 'Error occurred. Try connecting your wallet again.')
+            return JsonResponse({'message': 'Failed to connect the wallet.'}, status=400)
 
-        # Flash success message
-        messages.success(request, 'Your Wallet has been successfully added.')
-
-        return redirect('profile')
-
-
+    return JsonResponse({'message': 'Method not allowed.'}, status=405)
 
 def nft_assets(request):
     user = request.user
@@ -69,7 +83,7 @@ def nft_assets(request):
             nft_image_uri = nft['image_url']
             nft_name = nft['name']
             if len(nft_name) > 17:
-                nft_name = nft_name[:17] + '...'
+                nft_name = nft_name[:15] + '...'
             nft_price_sol = 0
             nft_price_usdc = 0
             for marketplace in nft['collection']['floor_prices']:
@@ -180,3 +194,18 @@ def fungible_tokens_total_balance(data):
          except KeyError:
              continue
     return total_wallet_balance
+
+
+def first_snapshot(user):
+    if WalletSnapshot.objects.filter(user=user).count() == 0:
+        wallet_balances = snapshot(user)  # Return (account_balance, solana_wallet_balance)
+        total_wallet_balance = wallet_balances[0]  # account_balance
+        solana_wallet_balance = wallet_balances[1]  # solana_wallet_balance
+
+        wallet_snapshot = WalletSnapshot.objects.create(
+            wallet_balance=total_wallet_balance,
+            solana_wallet_balance=solana_wallet_balance,
+            user=user
+        )
+
+        wallet_snapshot.save()

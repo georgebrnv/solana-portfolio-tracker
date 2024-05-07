@@ -14,7 +14,6 @@ def profile(request):
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         username = request.POST['username']
-        solana_wallet = request.POST['solana_wallet']
         email = request.POST['email']
 
         # Image update
@@ -39,11 +38,6 @@ def profile(request):
 
         if username != user.username:
             user.username = username
-            messages_bool = True
-
-        if solana_wallet != user.solana_wallet.solana_wallet_address:
-            user.solana_wallet.solana_wallet_address = solana_wallet
-            user.solana_wallet.save()
             messages_bool = True
 
         if email != user.email:

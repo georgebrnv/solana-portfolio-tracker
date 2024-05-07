@@ -1,36 +1,23 @@
+const popupContainer = document.getElementById('popupContainer');
+
 // POP-UP WINDOW FUNCTIONS
 function openPopup() {
-    const popupContainer = document.getElementById('popupContainer');
     if (popupContainer) {
         popupContainer.style.display = 'block';
     }
 }
 
 function closePopup() {
-    const popupContainer = document.getElementById('popupContainer');
     if (popupContainer) {
         popupContainer.style.display = 'none';
     }
 }
 
-function saveWallet() {
-//    const walletInput = document.getElementById('walletInput').value;
-//    console.log('Wallet address:', walletInput);
-    closePopup();
+// Navbar "Connect Wallet" button
+const connectWalletBtn = document.getElementById('connectWalletBtnNavbar');
+if (connectWalletBtn) {
+    connectWalletBtn.addEventListener('click', openPopup);
 }
-
-// Event listener for Navbar "Add Wallet" button
-const addWalletBtnNavbar = document.getElementById('addWalletBtnNavbar');
-if (addWalletBtnNavbar) {
-    addWalletBtnNavbar.addEventListener('click', openPopup);
-}
-
-// Event listener for Profile page "Add Wallet" button
-const addWalletBtnProfile = document.getElementById('addWalletBtnProfile');
-if (addWalletBtnProfile) {
-    addWalletBtnProfile.addEventListener('click', openPopup);
-}
-
 
 
 // FAQ SECTION TOGGLE

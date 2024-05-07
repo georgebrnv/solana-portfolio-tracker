@@ -54,11 +54,18 @@
     </div>
 </footer>
 
+<!-- Cookies.js -->
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+<!-- Include HTMX library -->
+<script src="https://unpkg.com/htmx.org@1.6.1/dist/htmx.min.js"></script>
+<!-- Phantom.js -->
+<script src="https://solana-labs.github.io/phantom-wallet/browser/phantom.js"></script>
 <!-- Chart.js script -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- Local script files -->
 <script src="{% static 'dashboard/script/script.js' %}"></script>
 <script src="{% static 'dashboard/script/chart_script.js' %}"></script>
+<script src="{% static 'dashboard/script/solana_wallet_connect.js' %}"></script>
 <!--  BOOTSTRAP SCRIPT  -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

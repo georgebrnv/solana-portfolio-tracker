@@ -3,5 +3,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('wallet', views.add_wallet, name='add_wallet')
+    path('connect-wallet', views.connect_wallet, name='connect_wallet')
 ]

@@ -18,20 +18,25 @@
 <!-- Add Wallet Pop-up Window -->
 <div id="popupContainer" class="popupContainer pt-5">
     <div class="popupContent card">
-        <form method="POST" action="{% url 'add_wallet' %}">
-            {% csrf_token %}
-            <div class="row">
-                <h1 class="col-md-5 h3 fw-normal text-light">Add Wallet</h1>
-                <p class="col-md-1 closeBtn text-end" onclick="closePopup()">&times;</p>
-            </div>
-            <div class="form-floating">
-                <input type="text" class="form-control form-control-auth auth-form" id="floatingInput"
-                       placeholder="Wallet Address" name="solana_wallet">
-                <label for="floatingInput">Solana Address</label>
-            </div>
-            <button class="btn btn-info w-100 py-2 mt-3" id="walletInput" onclick="saveWallet()" type="submit">Save
-                Wallet</button>
-        </form>
+        <div class="row">
+            <h1 class="col-md-9 fw-normal caution-secondary">Connect your wallet</h1>
+            <p class="col-md-1 closeBtn text-end" onclick="closePopup()">&times;</p>
+        </div>
+        <div class="">
+            <p class="h6 text-white mb-3">TrackOff requests your Wallet Public Key
+                only. We would never ask for your Wallet
+                Private key or Mnemonic phrase.
+            </p>
+            <p class="h6 text-white"><span class="caution">CAUTION:</span> If you connect a new wallet, all data
+                from previous wallet will be wiped.
+            </p>
+        </div>
+        <a id="connectWalletBtn" class="col-auto btn btn-warning rounded me-2"
+           hx-trigger="click"
+           hx-swap="outerHTML"
+           hx-target="#connectWalletBtn">
+            Connect Wallet
+        </a>
     </div>
 </div>
 
@@ -75,21 +80,28 @@
                     <li><a href="{% url 'portfolio' %}" class="nav-link px-2 text-white">Portfolio</a></li>
                 </ul>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 px-1" role="search">
-                    <input type="search" class="form-control nav-search-btn" placeholder="Coin, wallet address..."
-                           aria-label="Search">
-                </form>
-
-
                 <div class="row justify-content-center align-items-center text-end me-2">
 
                     {% if not user.is_authenticated %}
                     <a href="{% url 'login' %}" class=" col-auto btn login-btn me-2">Login</a>
                     <a href="{% url 'register' %}" class=" col-auto btn btn-info btn-upd">Get Started</a>
                     {% else %}
-                    {% if user.solana_wallet is None %}
-                    <a id="addWalletBtnNavbar" class="col-auto btn btn-warning rounded me-2">Add Wallet</a>
-                    {% endif %}
+
+                    <a id="disconnectWalletBtn" class="col-auto btn btn-warning rounded me-2"
+                       style="display: none"
+                       hx-trigger="click"
+                       hx-swap="outerHTML"
+                       hx-target="#disconnectWalletBtn"
+                       hx-indicator="dots">
+                        Disconnect Wallet
+                    </a>
+                    <a id="connectWalletBtnNavbar" class="col-auto btn btn-warning rounded me-2"
+                       hx-trigger="click"
+                       hx-swap="outerHTML"
+                       hx-target="#connectWalletBtn">
+                        Connect Wallet
+                    </a>
+
                     <div class="col-auto dropdown text-end">
                         <a href="#" class="d-block link-body-emphasis text-decoration-none"
                            data-bs-toggle="dropdown" aria-expanded="false">
@@ -104,7 +116,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                            <li><a id="logoutBtn" class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
                         </ul>
                     </div>
                     {% endif %}
