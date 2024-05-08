@@ -1,6 +1,57 @@
 let chart;
+let chartDoughnut;
 
-function initializeChart(data) {
+function initializePieChart() {
+    const canvas = document.getElementById('assetsPieChart');
+
+    chartDoughnut = new Chart(canvas, {
+        type: 'doughnut',
+        data: {
+            labels: ['NFT Assets', 'Fungible Tokens'],
+            datasets: [{
+                data: [totalNFTValue, totalFungibleValue],
+                backgroundColor: ['#0dcaf0', '#ffc107'],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            cutout: '70%',
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    labels: {
+                        boxWidth: 10,
+                        color: '#D4D4D4',
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.label + ': $' + context.parsed.toFixed(2);
+                        }
+                    }
+                }
+            },
+            aspectRatio: 1,
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    top: 10,
+                    bottom: 10
+                }
+            },
+            animation: {
+                duration: 1500,
+                easing: 'easeInOutQuart'
+            }
+        }
+    });
+}
+
+
+function initializeLineChart(data) {
     const canvas = document.getElementById('walletBalanceChart');
 
     // Wallet balance in USDC
@@ -114,41 +165,42 @@ function createGradient(canvas, colors) {
 document.getElementById('dayBtn').addEventListener('click', function() {
     setActiveButton(this);
     chart.destroy();
-    initializeChart(walletSnapshotsData['day_1']);
+    initializeLineChart(walletSnapshotsData['day_1']);
 });
 
 document.getElementById('weekBtn').addEventListener('click', function() {
     setActiveButton(this);
     chart.destroy();
-    initializeChart(walletSnapshotsData['week_1']);
+    initializeLineChart(walletSnapshotsData['week_1']);
 });
 
 document.getElementById('monthBtn').addEventListener('click', function() {
     setActiveButton(this);
     chart.destroy();
-    initializeChart(walletSnapshotsData['month_1']);
+    initializeLineChart(walletSnapshotsData['month_1']);
 });
 
 document.getElementById('month3Btn').addEventListener('click', function() {
     setActiveButton(this);
     chart.destroy();
-    initializeChart(walletSnapshotsData['month_3']);
+    initializeLineChart(walletSnapshotsData['month_3']);
 });
 
 document.getElementById('month6Btn').addEventListener('click', function() {
     setActiveButton(this);
     chart.destroy();
-    initializeChart(walletSnapshotsData['month_6']);
+    initializeLineChart(walletSnapshotsData['month_6']);
 });
 
 document.getElementById('yearBtn').addEventListener('click', function() {
     setActiveButton(this);
     chart.destroy();
-    initializeChart(walletSnapshotsData['year_1']);
+    initializeLineChart(walletSnapshotsData['year_1']);
 });
 
 window.onload = function() {
-    initializeChart(walletSnapshotsData['day_1']);
+    initializeLineChart(walletSnapshotsData['day_1']);
+    initializePieChart();
 };
 
 function setActiveButton(clickedButton) {

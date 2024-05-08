@@ -57,6 +57,7 @@ def portfolio(request):
         'sorted_wallet_tokens': sorted_wallet_tokens[:5],
         'wallet_snapshots_data': wallet_snapshots_data,
         'fungible_account_balance': fungible_account_balance,
+        'nft_account_balance': total_nfts_value,
     })
 
 def balance_chart(request):

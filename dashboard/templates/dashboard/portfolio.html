@@ -82,12 +82,17 @@
 
     <div class="row">
 
-        <!-- Line Chart -->
+        <!-- Load charts data -->
         <script>
             const walletSnapshotsData = {{ wallet_snapshots_data|safe }};
+            const totalNFTValue = {{ nft_account_balance|safe }};
+            const totalFungibleValue = {{ fungible_account_balance|safe }};
+            const totalWalletBalance = {{ total_wallet_balance|safe }};
         </script>
+
+        <!-- Line Chart -->
         <div class="col-xl-8">
-            <div class="card mb-4">
+            <div class="card line-chart-card mb-4">
                 <div class="card-body">
                     <div class="chart-area">
                         <canvas id="walletBalanceChart" width="auto" height="100"
@@ -107,22 +112,14 @@
             </div>
         </div>
 
-        <!-- News -->
+        <!-- Doughnut Chart -->
         <div class="col-xl-4">
-            <div class="card mb-4">
+            <div class="card doughnut-chart-card mb-4">
                 <div class="card-body">
-                    <div class="chart-pie">
-                        <div class="chartjs-size-monitor">
-                            <div class="chartjs-size-monitor-expand">
-                                <div class=""></div>
-                            </div>
-                            <div class="chartjs-size-monitor-shrink">
-                                <div class=""></div>
-                            </div>
-                        </div>
-                        <canvas id="myPieChart" width="auto" height="320"
-                                style="display: flex; width: auto; height: 320px;"
-                                class="chartjs-render-monitor"></canvas>
+                    <div class="chart-doughnut">
+                        <p class="doughnut-text pb-3">Total:<br>${{ total_wallet_balance }}</p>
+                        <canvas id="assetsPieChart" width="auto" height="100"
+                                style="display: flex; width: auto; height: 320px;"></canvas>
                     </div>
                 </div>
             </div>
