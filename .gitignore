@@ -164,3 +164,6 @@ media/user_profile/profile_images/
 
 # All migrations folders
 **/migrations/
+
+datadump.json
+README.Docker.md

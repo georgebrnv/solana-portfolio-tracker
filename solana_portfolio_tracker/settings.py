@@ -38,6 +38,13 @@ ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1"]
 HELIUS_KEY_ID = os.getenv('HELIUS_KEY_ID')
 # SimpleHash credentials
 SimpleHash_API_KEY = os.getenv('SimpleHash_API_KEY')
+# Railway PostgreSQL credentials
+POSTGRES_DB = os.getenv('POSTGRES_DB')
+POSTGRES_USER = os.getenv('POSTGRES_USER')
+POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
+POSTGRES_HOST = os.getenv('POSTGRES_HOST')
+POSTGRES_PORT = os.getenv('POSTGRES_PORT')
+
 
 
 # Application definition
@@ -93,8 +100,12 @@ WSGI_APPLICATION = 'solana_portfolio_tracker.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': POSTGRES_DB,
+        'USER': POSTGRES_USER,
+        'PASSWORD': POSTGRES_PASSWORD,
+        'HOST': POSTGRES_HOST,
+        'PORT': POSTGRES_PORT
     }
 }
 

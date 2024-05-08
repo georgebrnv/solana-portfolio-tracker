@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.db import connection
-from datetime import datetime
+from datetime import datetime, timezone
 from django.contrib import messages
 
 from wallet.views import fungible_token_balance, nft_assets
@@ -97,7 +97,7 @@ def balance_chart(request):
         daily_snapshot = {"timestamp_datetime": timestamp_datetime.strftime("%m/%d/%Y %H:%M"), "wallet_balance": wallet_balance, "solana_wallet_balance": solana_wallet_balance}
         snapshot = {"day": timestamp_datetime.strftime("%m/%d/%Y"), "wallet_balance": wallet_balance, "solana_wallet_balance": solana_wallet_balance}
 
-        days_diff = (datetime.utcnow() - timestamp_datetime).days
+        days_diff = (datetime.now(timezone.utc) - timestamp_datetime).days
 
         if days_diff == 0:
             user_snapshot_data['day_1'].append(daily_snapshot)
