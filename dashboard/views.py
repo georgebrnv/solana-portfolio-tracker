@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.db import connection
+from django.db.utils import OperationalError
 from datetime import datetime, timezone
 from django.contrib import messages
 
@@ -43,6 +44,7 @@ def portfolio(request):
 
     # Wallet Snapshots Data
     wallet_snapshots_data = balance_chart(request)
+    print('WALLET SNAPSHOT DATA FROM PORTFOLIO FUNC: ', wallet_snapshots_data)
 
     # Total account balance (fungible + nfts)
     total_wallet_balance = round(fungible_account_balance +  total_nfts_value, 2)
@@ -73,6 +75,7 @@ def balance_chart(request):
     """
 
     wallet_balance_data = execute_sql_query(wallet_balance_data_query)
+    print('WALLET BALANCE DATA:', wallet_balance_data)
 
     user_snapshot_data = {
         "day_1": [],
@@ -116,17 +119,21 @@ def balance_chart(request):
         if timestamp_datetime.date() != last_year_snapshot_date and days_diff <= 365:
             user_snapshot_data['year_1'].append(snapshot)
             last_year_snapshot_date = timestamp_datetime.date()
-
+    print("User snapshot data: ", user_snapshot_data)
     return user_snapshot_data
 
 def execute_sql_query(query):
-    with connection.cursor() as cursor:
-        cursor.execute(query)
-        # Store column names (col[0]) in the 'columns' variable
-        columns = [col[0] for col in cursor.description]
-        # Fetch all the rows from executed query
-        rows = cursor.fetchall()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(query)
+            # Store column names (col[0]) in the 'columns' variable
+            columns = [col[0] for col in cursor.description]
+            # Fetch all the rows from executed query
+            rows = cursor.fetchall()
 
-        # List comprehension iterates through each row and creates a list of
-        # dictionaries and pair column name with the corresponding value (key: value)
-        return [dict(zip(columns, row)) for row in rows]
+            # List comprehension iterates through each row and creates a list of
+            # dictionaries and pair column name with the corresponding value (key: value)
+            return [dict(zip(columns, row)) for row in rows]
+    except OperationalError as e:
+        print(f"Database Error: {e}")
+        return []
