@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 from django.contrib import messages
 
 from .decorators import redirect_authenticated_user
@@ -14,6 +16,12 @@ def register_user(request):
         email = request.POST['email']
         password = request.POST['password']
         confirm_password = request.POST['confirm_password']
+
+        try:
+            validate_email(email)
+        except ValidationError:
+            messages.error(request, 'Please enter a valid email address.')
+            return redirect('register')
 
         if UserAuth.objects.filter(email=email).exists():
             messages.error(request, 'User with this email already exists. Please log in or use a different email.')
