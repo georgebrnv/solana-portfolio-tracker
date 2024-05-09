@@ -168,3 +168,7 @@ LOGIN_URL = 'login'
 CRONJOBS = [
     ('* * * * *', 'django.core.management.call_command', ['wallet-balance-snapshot']),
 ]
+
+
+# DigitalOcean CSRF Trust
+CSRF_TRUSTED_ORIGINS = ['https://seashell-app-aq7tp.ondigitalocean.app']
