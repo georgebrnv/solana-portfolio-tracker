@@ -10,7 +10,7 @@ RUN apk update && \
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY crontab /etc/crontabs/root
+COPY crontab /cron_job
 RUN crontab cron_job
 
 COPY . .
