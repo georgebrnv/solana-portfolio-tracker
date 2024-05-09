@@ -171,4 +171,4 @@ CRONJOBS = [
 
 
 # DigitalOcean CSRF Trust
-CSRF_TRUSTED_ORIGINS = ['https://seashell-app-aq7tp.ondigitalocean.app']
+CSRF_TRUSTED_ORIGINS = ['https://seashell-app-aq7tp.ondigitalocean.app', 'trackoff.app']
