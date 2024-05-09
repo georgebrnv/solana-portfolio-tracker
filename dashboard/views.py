@@ -6,10 +6,6 @@ from django.contrib import messages
 
 from wallet.views import fungible_token_balance, nft_assets
 
-import logging
-
-logger = logging.getLogger(__name__)
-
 FAQ = {
     "What is Solana?": "Solana is a high-performance blockchain platform designed for decentralized applications and crypto projects.",
     "How does Solana achieve high throughput?": "Solana achieves high throughput through its unique consensus mechanism called Proof of History (PoH), which timestamps transactions before they are included in a block.",
@@ -48,7 +44,6 @@ def portfolio(request):
 
     # Wallet Snapshots Data
     wallet_snapshots_data = balance_chart(request)
-    logger.debug('WALLET SNAPSHOT DATA FROM PORTFOLIO FUNC: %s', wallet_snapshots_data)
 
     # Total account balance (fungible + nfts)
     total_wallet_balance = round(fungible_account_balance +  total_nfts_value, 2)
@@ -79,7 +74,6 @@ def balance_chart(request):
     """
 
     wallet_balance_data = execute_sql_query(wallet_balance_data_query)
-    logger.debug('WALLET BALANCE DATA: %s', wallet_balance_data)
 
     user_snapshot_data = {
         "day_1": [],
@@ -123,7 +117,7 @@ def balance_chart(request):
         if timestamp_datetime.date() != last_year_snapshot_date and days_diff <= 365:
             user_snapshot_data['year_1'].append(snapshot)
             last_year_snapshot_date = timestamp_datetime.date()
-    logger.debug("User snapshot data: %s", user_snapshot_data)
+
     return user_snapshot_data
 
 def execute_sql_query(query):
