@@ -8,8 +8,7 @@ RUN apk update \
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY crontab /etc/crontabs/root/crontab
-RUN chmod 755 /etc/crontabs/root/crontab
+COPY crontab /etc/crontabs/root
 
 COPY . .
 
