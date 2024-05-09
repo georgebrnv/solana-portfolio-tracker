@@ -172,28 +172,3 @@ CRONJOBS = [
 
 # DigitalOcean CSRF Trust
 CSRF_TRUSTED_ORIGINS = ['https://seashell-app-aq7tp.ondigitalocean.app']
-
-
-# Runtime logger
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'solana_portfolio_tracker': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
