@@ -29,9 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SETTINGS_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1", "seashell-app-aq7tp.ondigitalocean.app"]
+ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1", "seashell-app-aq7tp.ondigitalocean.app", 'trackoff.app']
 
 
 # Helius credentials
